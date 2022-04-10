@@ -1,0 +1,22 @@
+.container { // aliniem
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .register-section {
+      width: 50%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: skyblue;
+
+      .register-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }

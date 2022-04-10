@@ -1,0 +1,37 @@
+<div class="container">
+    <h1 class="greeting"> Welcome! </h1>
+  
+    <div class="register-section">
+      <p>Please register:</p>
+      <form [formGroup]="registerForm" class="register-form"> <!--registerForm trebuie creat in register component-->
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name" formControlName="firstname">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name" formControlName="lastname">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Password" formControlName="password">
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput type="username" placeholder="Username" formControlName="username">
+      </mat-form-field>
+    </form>
+  
+      <button mat-raised-button (click)="register()">Sign up</button>
+    </div>
+
+    <p>If you already have an account, please login:</p> <button mat-raised-button (click)="openLoginForm()">Login</button>
+  </div>

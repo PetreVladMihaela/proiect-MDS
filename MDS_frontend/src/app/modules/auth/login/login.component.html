@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 class='title'> Login </h1>
+  
+    <form [formGroup] ="loginForm" class="login-form"> 
+
+      <mat-form-field appearance="outline">
+        <mat-label>Username/Email</mat-label>
+        <input matInput placeholder="" formControlName="email_or_username">
+      </mat-form-field>
+
+    </form>
+  
+    <div class="actions">
+      <button mat-stroked-button color="accent" class="cancel" (click)="closeDialog()">
+        Cancel
+      </button>
+  
+      <button  mat-stroked-button color="accent" class="login" (click)="login()">
+        Register
+      </button>
+    </div>
+</div>
