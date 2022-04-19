@@ -6,4 +6,4 @@
  - Vrinceanu Vlad-Florin 242
 
 ## Tema:
-Facem o aplicație web Find Your Band Members, în care muzicienii pot completa un chestionar pentru a găsi dintre utilizatorii aplicației persoanele cele mai potrivite pentru formația lor.
+Facem o aplicație web Find Your Band Members, în care muzicienii pot completa un chestionar pentru a găsi dintre utilizatorii aplicației persoanele cele mai potrivite pentru formația lor. Avem două părți: frontend și backend.
