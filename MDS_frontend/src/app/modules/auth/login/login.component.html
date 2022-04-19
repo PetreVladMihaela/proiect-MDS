@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 class='title'> Login </h1>
+  
+    <form [formGroup] ="loginForm" class="login-form"> 
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="" formControlName="password">
+      </mat-form-field>
+
+    </form>
+
+    <p class="warning" [ngStyle]="hideWarning ? {display: 'none'} : {display: 'block'}">Incorrect email or password!</p>
+  
+    <div class="actions">
+      <button mat-stroked-button color="accent" class="cancel" (click)="closeDialog()">
+        Cancel
+      </button>
+  
+      <button  mat-stroked-button color="accent" class="login" (click)="login()">
+        Login
+      </button>
+    </div>
+</div>
