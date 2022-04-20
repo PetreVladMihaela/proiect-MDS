@@ -7,6 +7,7 @@ namespace MDS_backend.Managers
     { 
         List<UserProfile> GetUserProfiles();
         UserProfile GetProfileByEmail(string email);
+        UserProfile GetProfileWithOwnerByUsername(string username);
 
         void Create(UserProfileModel model);
         void Update(UserProfileModel model);

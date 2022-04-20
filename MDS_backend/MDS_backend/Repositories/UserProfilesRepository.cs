@@ -23,6 +23,12 @@ namespace MDS_backend.Repositories
             return profiles;
         }
 
+        public IQueryable<UserProfile> GetUserProfilesWithAddressAndOwner()
+        {
+            var profiles = GetUserProfilesIQueryable().Include(p => p.Address).Include(p => p.Owner);
+            return profiles;
+        }
+
 
         public void Create(UserProfile profile)
         {

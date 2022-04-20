@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\MDS backend\\MDS_backend\\MDS_backend.csproj": {}
+    "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\proiect_mds\\MDS_backend\\MDS_backend\\MDS_backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\MDS backend\\MDS_backend\\MDS_backend.csproj": {
+    "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\proiect_mds\\MDS_backend\\MDS_backend\\MDS_backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\MDS backend\\MDS_backend\\MDS_backend.csproj",
+        "projectUniqueName": "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\proiect_mds\\MDS_backend\\MDS_backend\\MDS_backend.csproj",
         "projectName": "MDS_backend",
-        "projectPath": "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\MDS backend\\MDS_backend\\MDS_backend.csproj",
+        "projectPath": "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\proiect_mds\\MDS_backend\\MDS_backend\\MDS_backend.csproj",
         "packagesPath": "C:\\Users\\MIHAELAPETRE-VLAD\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\MDS backend\\MDS_backend\\obj\\",
+        "outputPath": "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\proiect_mds\\MDS_backend\\MDS_backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MIHAELAPETRE-VLAD\\AppData\\Roaming\\NuGet\\NuGet.Config",

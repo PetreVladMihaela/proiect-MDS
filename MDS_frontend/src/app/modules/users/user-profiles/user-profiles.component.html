@@ -1,1 +1,50 @@
-<p>user-profiles works!</p>
+<div class="container">
+    <h1 class="title">
+        User Profile
+    </h1>
+    <mat-card class="profile-card">
+        <mat-card-header>
+            <div mat-card-avatar class="profile-header"></div>
+            <mat-card-title>{{user.username}}</mat-card-title>
+            <mat-card-subtitle>Info</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="profile-info">
+            <p class="details">
+                First Name: {{userProfile.firstName}} 
+            </p>
+            <p class="details">
+                Last Name: {{userProfile.lastName}} 
+            </p>
+            <p class="details">
+                Email: {{userProfile.email}}
+            </p>
+            <p class="details">
+                Age: {{userProfile.age}}
+            </p>
+            <p class="details">
+                Is Musician: {{userProfile.isMusician}}
+            </p>
+            <p class="details">
+                Can Sing: {{userProfile.canSing}}
+            </p>
+            <p class="details">
+                Played Instrument: {{userProfile.playedInstrument}}
+            </p>
+            <p class="details">
+                Preferred Music Genre: {{userProfile.preferredMusicGenre}}
+            </p>
+            <p class="details">Address:</p>
+            <ul>
+                <li>Country: {{userProfile.address?.country}}</li>
+                <li>City: {{userProfile.address?.city}}</li>
+                <li>Street: {{userProfile.address?.street}}</li>
+            </ul>
+            <!-- <p class="details">
+                Band Id: {{userProfile.bandId}}
+            </p> -->
+        </mat-card-content>
+        <mat-card-actions *ngIf="canEdit" class="edit-button">
+            <button mat-button>EDIT</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

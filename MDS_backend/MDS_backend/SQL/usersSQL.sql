@@ -19,7 +19,7 @@ VALUES ('email@gmail.com', 'parola99', 'cool_guitarist');
 GO
 
 INSERT INTO [dbo].[Users](Email, Password, Username) 
-VALUES ('myemail@yahoo.eu', '#1name', 'random-name');
+VALUES ('myemail@yahoo.eu', '#1name', 'random_name');
 GO
 
 
