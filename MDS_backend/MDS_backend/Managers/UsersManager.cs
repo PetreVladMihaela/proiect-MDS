@@ -24,9 +24,15 @@ namespace MDS_backend.Managers
             return usersRepository.GetUsersWithProfile().ToList();
         }
 
-        public User GetUserByEmail(string email)
+        public User? GetUserByEmail(string email)
         {
-            var user = usersRepository.GetUsersIQueryable().First(u => u.Email == email);
+            var user = usersRepository.GetUsersIQueryable().FirstOrDefault(u => u.Email == email);
+            return user;
+        }
+
+        public User? GetUserByUsername(string username)
+        {
+            var user = usersRepository.GetUsersIQueryable().FirstOrDefault(u => u.Username == username);
             return user;
         }
 

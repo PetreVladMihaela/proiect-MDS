@@ -7,7 +7,8 @@ namespace MDS_backend.Managers
     {
         List<User> GetAllUsers();
         List<User> GetAllUsersWithProfile();
-        User GetUserByEmail(string email);
+        User? GetUserByEmail(string email);
+        User? GetUserByUsername(string username);
 
         void Create(UserModel model);
         void Update(UserModel model);

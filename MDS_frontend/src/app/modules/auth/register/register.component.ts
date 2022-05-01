@@ -83,14 +83,17 @@ export class RegisterComponent implements OnInit {
 
   public openLoginForm(): void { // deschide si configureza ferastra modala de login
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '500px';
-    dialogConfig.height = '600px';
+    dialogConfig.width = '50%';
+    dialogConfig.minWidth = '300px';
+    dialogConfig.maxWidth = '550px';
+    dialogConfig.height = '550px';
+    dialogConfig.disableClose = true; // nu se mai inchide dialogul daca dam clic in afara
     const dialogRef = this.dialog.open(LoginComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(() => { // Daca inchidem fereastra prin butonul de cancel, 
                                               //      auth guard nu ne permite sa trecem de pagina de register
                                               // altfel suntem redirectionati catre pagina userului
-      this.router.navigate(['/user', this.registerForm.value.username]);
+      //this.router.navigate(['/user', this.registerForm.value.username]);
     });
   }
 

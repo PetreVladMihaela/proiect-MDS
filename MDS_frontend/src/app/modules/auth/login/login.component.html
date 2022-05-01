@@ -1,22 +1,52 @@
 <div class="container">
-    <h1 class='title'> Login </h1>
-  
-    <form [formGroup] ="loginForm" class="login-form"> 
+  <h1 class='title'> {{pageTitle}} </h1>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Username/Email</mat-label>
-        <input matInput placeholder="" formControlName="email_or_username">
-      </mat-form-field>
+  <p>If you want to login with your {{otherField}} click here:</p>
+  <button class="changeLogin" mat-raised-button color="accent" (click) = "changeLoginMethod()">{{changeLogin}}</button>
 
-    </form>
-  
-    <div class="actions">
-      <button mat-stroked-button color="accent" class="cancel" (click)="closeDialog()">
-        Cancel
-      </button>
-  
-      <button  mat-stroked-button color="accent" class="login" (click)="login()">
-        Register
-      </button>
-    </div>
+  <form [formGroup] ="loginForm" class="login-form"> 
+
+    <mat-form-field [ngStyle]="loginWithEmail ? {display: 'block'} : {display: 'none'}" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input required matInput placeholder="" formControlName="email">
+      <div *ngIf="email.touched" class="alert">
+        <div *ngIf="email.errors?.['required']">
+          Email is required!
+        </div>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field [ngStyle]="loginWithEmail ? {display: 'none'} : {display: 'block'}" appearance="outline">
+      <mat-label>Username</mat-label>
+      <input required matInput placeholder="" formControlName="username">
+      <div *ngIf="username.touched" class="alert">
+        <div *ngIf="username.errors?.['required']">
+          Username is required!
+        </div>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input required type="password" matInput placeholder="" formControlName="password">
+      <div *ngIf="password.touched" class="alert">
+        <div *ngIf="password.errors?.['required']">
+          Password is required!
+        </div>
+      </div>
+    </mat-form-field>
+
+  </form>
+
+  <p class="warning" [ngStyle]="hideWarning ? {display: 'none'} : {display: 'block'}">{{warning}}</p>
+
+  <div class="actions">
+    <button mat-stroked-button class="cancel" (click)="closeDialog()">
+      Cancel
+    </button>
+
+    <button  mat-stroked-button class="login" (click)="login()">
+      Login
+    </button>
+  </div>
 </div>

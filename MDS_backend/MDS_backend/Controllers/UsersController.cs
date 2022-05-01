@@ -34,10 +34,18 @@ namespace MDS_backend.Controllers
         }
 
  
-        [HttpGet("{email}")]
+        [HttpGet("getByEmail/{email}")]
         public IActionResult GetUserByEmail([FromRoute] string email)
         {
             var user = manager.GetUserByEmail(email);
+            return Ok(user);
+        }
+
+
+        [HttpGet("getByUsername/{username}")]
+        public IActionResult GetUserByUsername([FromRoute] string username)
+        {
+            var user = manager.GetUserByUsername(username);
             return Ok(user);
         }
 

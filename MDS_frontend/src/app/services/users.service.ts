@@ -44,4 +44,12 @@ export class UsersService {
     )
   }
 
+  public getUserByUsername(username: string): Observable<User> {
+    return this.http.get<User>(`${this.url+"/getByUsername"}/${username}`);
+  }
+
+  public getUserByEmail(email: string): Observable<User> {
+    return this.http.get<User>(`${this.url+"/getByEmail"}/${email}`);
+  }
+
 }
