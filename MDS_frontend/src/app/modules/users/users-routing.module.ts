@@ -20,7 +20,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'user/:email', // http://localhost:4200/user/{email} <- ruta cu un parametru
+    path: 'user/:username', // http://localhost:4200/user/{email} <- ruta cu un parametru
     component: UserProfilesComponent // <- componenta instantiata cand ruta este accesata
   },
 

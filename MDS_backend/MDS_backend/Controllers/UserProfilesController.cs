@@ -29,8 +29,16 @@ namespace MDS_backend.Controllers
         [HttpGet("{email}")]
         public IActionResult GetUserProfileByEmail([FromRoute] string email)
         {
-            var user = manager.GetProfileByEmail(email);
-            return Ok(user);
+            var profile = manager.GetProfileByEmail(email);
+            return Ok(profile);
+        }
+
+
+        [HttpGet("withOwner/{username}")]
+        public IActionResult GetUserProfileByOwnerUsername([FromRoute] string username)
+        {
+            var profile = manager.GetProfileWithOwnerByUsername(username);
+            return Ok(profile);
         }
 
 

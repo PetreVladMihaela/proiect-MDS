@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -16,14 +17,16 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule, // <- pentru a crea campurile formularelor
     MatInputModule, // <- pentru a putea scrie in campurile formularelor
     MatButtonModule,
-    MatDialogModule // <- pentru dialogul modal de login
+    MatDialogModule, // <- pentru dialogul modal de login
+    MatCardModule
   ],
 
   exports: [ // materialele importate in acest modul trebuie si exportate, pt. a putea fi accesate in restul aplicatiei  
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ]
 })
 export class MaterialModule { }

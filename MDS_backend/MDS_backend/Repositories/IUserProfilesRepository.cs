@@ -6,6 +6,7 @@ namespace MDS_backend.Repositories
     {
         IQueryable<UserProfile> GetUserProfilesIQueryable();
         IQueryable<UserProfile> GetUserProfilesWithAddress();
+        IQueryable<UserProfile> GetUserProfilesWithAddressAndOwner();
 
         void Create(UserProfile profile);
         void Update(UserProfile profile);

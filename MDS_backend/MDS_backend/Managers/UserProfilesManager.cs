@@ -25,6 +25,12 @@ namespace MDS_backend.Managers
             return profile;
         }
 
+        public UserProfile GetProfileWithOwnerByUsername(string username)
+        {
+            var profiles = profilesRepository.GetUserProfilesWithAddressAndOwner();
+            return profiles.First(p => p.Owner.Username == username);
+        }
+
 
         public void Create(UserProfileModel model)
         {

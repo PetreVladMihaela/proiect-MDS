@@ -69,12 +69,14 @@ export class RegisterComponent implements OnInit {
       email: this.registerForm.value.email,
       firstName: this.registerForm.value.firstname,
       lastName: this.registerForm.value.lastname,
+      owner: newUser
     }
     
     this.usersService.createUser(newUser).subscribe(() => {
       this.userProfilesService.createUserProfile(newProfile).subscribe(() => {
         localStorage.setItem('Role', 'User');
-        this.router.navigate(['/user', newUser.email]);
+        localStorage.setItem('User', newUser.password);
+        this.router.navigate(['/user', newUser.username]);
       })
     });
   }
@@ -88,7 +90,7 @@ export class RegisterComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => { // Daca inchidem fereastra prin butonul de cancel, 
                                               //      auth guard nu ne permite sa trecem de pagina de register
                                               // altfel suntem redirectionati catre pagina userului
-      this.router.navigate(['/user', this.registerForm.value.email]);
+      this.router.navigate(['/user', this.registerForm.value.username]);
     });
   }
 
