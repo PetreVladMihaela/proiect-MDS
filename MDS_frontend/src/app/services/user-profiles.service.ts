@@ -22,4 +22,8 @@ export class UserProfilesService {
     return this.http.get<UserProfile>(`${this.url+"/withOwner"}/${username}`);
   }
 
+  public editUserProfile(profile: UserProfile): Observable<UserProfile> {
+    return this.http.put<UserProfile>(this.url, profile);
+  }
+
 }

@@ -8,10 +8,18 @@ namespace MDS_backend.Entities
         public string Email { get; set; } = null!;
         public virtual User Owner { get; set; } = null!;
 
+        [StringLength(20, MinimumLength = 10)]
+        public string? Phone { get; set; } = null!;
+
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public int? Age { get; set; }
-        public bool? IsMusician{ get; set; }
+        public string? Occupation { get; set; }
+
+        public string? Trait1 { get; set; }
+        public string? Trait2 { get; set; }
+
+        //public bool? IsMusician{ get; set; }
         public bool? CanSing { get; set; }
 
         //public List<string>? PlayedInstruments { get; set; }

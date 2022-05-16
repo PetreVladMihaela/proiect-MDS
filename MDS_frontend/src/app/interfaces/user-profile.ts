@@ -7,10 +7,13 @@ export interface UserProfile {
     firstName?: string
     lastName?: string
     age?: number
-    isMusician?: boolean
+    occupation?: string
+    phone?: string
     canSing?: boolean
     playedInstrument?: string
     preferredMusicGenre?: string
+    trait1?: string
+    trait2?: string
     bandId?: number
     address?: UserAddress
 }

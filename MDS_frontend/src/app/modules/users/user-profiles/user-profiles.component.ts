@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { User } from 'src/app/interfaces/user';
 import { UserProfile } from 'src/app/interfaces/user-profile';
 import { UserProfilesService } from 'src/app/services/user-profiles.service';
+import { EditUserProfileComponent } from '../edit-user-profile/edit-user-profile.component';
 
 @Component({
   selector: 'app-user-profiles',
@@ -28,7 +30,8 @@ export class UserProfilesComponent implements OnInit, OnDestroy {
 
   constructor(
     private profilesService: UserProfilesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -52,6 +55,20 @@ export class UserProfilesComponent implements OnInit, OnDestroy {
         //console.log(this.canEdit)
       }
       //console.log(this.userProfile);
+    });
+  }
+
+  public editUserProfile(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '50%';
+    dialogConfig.minWidth = '300px';
+    dialogConfig.maxWidth = '550px';
+    dialogConfig.height = '550px';
+    dialogConfig.disableClose = true; // nu se mai inchide dialogul daca dam clic in afara
+    dialogConfig.data = this.userProfile;
+    const dialogRef = this.dialog.open(EditUserProfileComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(() => {
+      this.getUserProfile();
     });
   }
 

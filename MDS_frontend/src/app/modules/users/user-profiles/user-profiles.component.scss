@@ -10,11 +10,13 @@
     font-size: 28px;
     font-weight: bold;
     color: rgb(46, 46, 49);
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 25px;
   }
 
   .profile-card {
     padding: 20px;
+    padding-bottom: 15px;
     width: 80%;
     max-width: 450px;
 
@@ -43,7 +45,7 @@
 
     .edit-button {
       float: right;
-      margin-top: -10px;
+      margin-top: -25px;
 
       button {
         font-size: 16px;

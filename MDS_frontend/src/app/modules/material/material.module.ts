@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule, // <- pentru a putea scrie in campurile formularelor
     MatButtonModule,
     MatDialogModule, // <- pentru dialogul modal de login
-    MatCardModule
+    MatCardModule,
+    MatSelectModule 
   ],
 
   exports: [ // materialele importate in acest modul trebuie si exportate, pt. a putea fi accesate in restul aplicatiei  
@@ -26,7 +28,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

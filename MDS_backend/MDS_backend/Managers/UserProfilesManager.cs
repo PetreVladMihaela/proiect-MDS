@@ -37,15 +37,17 @@ namespace MDS_backend.Managers
             var newProfile = new UserProfile
             {
                 Email = model.Email,
+                Phone = model.Phone,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Age = model.Age,
-                IsMusician = model.IsMusician,
+                Occupation = model.Occupation,
+                Trait1 = model.Trait1,
+                Trait2 = model.Trait2,
                 CanSing = model.CanSing,
                 PlayedInstrument = model.PlayedInstrument,
                 PreferredMusicGenre = model.PreferredMusicGenre,
                 BandId = model.BandId
-
             };
             profilesRepository.Create(newProfile);
         }
@@ -59,15 +61,18 @@ namespace MDS_backend.Managers
         public void Update(UserProfileModel model)
         {
             var profile = GetProfileByEmail(model.Email);
-            profile.Email = model.Email;
+            //profile.Email = model.Email;
+            profile.Phone = model.Phone;
             profile.FirstName = model.FirstName;
             profile.LastName = model.LastName;
             profile.Age = model.Age;
-            profile.IsMusician = model.IsMusician;
+            profile.Occupation = model.Occupation;
+            profile.Trait1 = model.Trait1;
+            profile.Trait2 = model.Trait2;
             profile.CanSing = model.CanSing;
             profile.PlayedInstrument = model.PlayedInstrument;
             profile.PreferredMusicGenre = model.PreferredMusicGenre;
-            profile.BandId = model.BandId;
+            //profile.BandId = model.BandId;
             profilesRepository.Update(profile);
         }
     }

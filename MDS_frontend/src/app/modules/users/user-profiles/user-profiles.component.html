@@ -6,7 +6,7 @@
         <mat-card-header>
             <div mat-card-avatar class="profile-header"></div>
             <mat-card-title>{{user.username}}</mat-card-title>
-            <mat-card-subtitle>Info</mat-card-subtitle>
+            <mat-card-subtitle>User Info</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="profile-info">
             <p class="details">
@@ -16,13 +16,19 @@
                 Last Name: {{userProfile.lastName}} 
             </p>
             <p class="details">
-                Email: {{userProfile.email}}
-            </p>
-            <p class="details">
                 Age: {{userProfile.age}}
             </p>
             <p class="details">
-                Is Musician: {{userProfile.isMusician}}
+                Occupation: {{userProfile.occupation}}
+            </p>
+            <p class="details">Contact Info:</p>
+            <ul>
+                <li>Email: {{userProfile.email}}</li>
+                <li>Phone: {{userProfile.phone}}</li>
+            </ul>
+            <p class="details">
+                Traits: {{userProfile.trait1}}
+                <span *ngIf="userProfile.trait2">, {{userProfile.trait2}}</span>
             </p>
             <p class="details">
                 Can Sing: {{userProfile.canSing}}
@@ -44,7 +50,7 @@
             </p> -->
         </mat-card-content>
         <mat-card-actions *ngIf="canEdit" class="edit-button">
-            <button mat-button>EDIT</button>
+            <button mat-button (click)="editUserProfile()">EDIT</button>
         </mat-card-actions>
     </mat-card>
 </div>

@@ -4,7 +4,7 @@
   <p>If you want to login with your {{otherField}} click here:</p>
   <button class="changeLogin" mat-raised-button color="accent" (click) = "changeLoginMethod()">{{changeLogin}}</button>
 
-  <form [formGroup] ="loginForm" class="login-form"> 
+  <form [formGroup] = "loginForm" class="login-form"> 
 
     <mat-form-field [ngStyle]="loginWithEmail ? {display: 'block'} : {display: 'none'}" appearance="outline">
       <mat-label>Email</mat-label>

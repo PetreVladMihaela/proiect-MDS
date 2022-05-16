@@ -9,9 +9,9 @@ namespace MDS_backend.Entities
 
         [Required, Key]
         public string Email { get; set; } = null!;
-        [Required]
+        [Required, StringLength(20, MinimumLength = 5)]
         public string Password { get; set; } = null!;
-        [Required]
+        [Required, StringLength(50, MinimumLength = 1)]
         public string Username { get; set; } = null!; //must be unique
 
         //[Required]

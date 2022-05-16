@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MDS_backend.Migrations
 {
     [DbContext(typeof(backendContext))]
-    [Migration("20220406143236_InitialCreate")]
+    [Migration("20220516112212_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,11 +90,13 @@ namespace MDS_backend.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Email");
 
@@ -107,11 +109,9 @@ namespace MDS_backend.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
@@ -139,16 +139,26 @@ namespace MDS_backend.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsMusician")
-                        .HasColumnType("bit");
-
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Occupation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("PlayedInstrument")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreferredMusicGenre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Trait1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Trait2")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Email");

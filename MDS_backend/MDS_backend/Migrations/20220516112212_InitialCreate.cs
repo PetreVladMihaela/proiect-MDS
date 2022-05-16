@@ -30,8 +30,8 @@ namespace MDS_backend.Migrations
                 columns: table => new
                 {
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Password = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,10 +66,13 @@ namespace MDS_backend.Migrations
                 columns: table => new
                 {
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Age = table.Column<int>(type: "int", nullable: true),
-                    IsMusician = table.Column<bool>(type: "bit", nullable: true),
+                    Occupation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Trait1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Trait2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CanSing = table.Column<bool>(type: "bit", nullable: true),
                     PlayedInstrument = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PreferredMusicGenre = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -96,8 +99,8 @@ namespace MDS_backend.Migrations
                 columns: table => new
                 {
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>

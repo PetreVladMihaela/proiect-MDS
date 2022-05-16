@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MDS_backend.Entities
+namespace MDS_backend.Models
 {
-    public class UserAddress
+    public class UserAddressModel
     {
         [Required, Key]
         public string Email { get; set; } = null!;
-        public virtual UserProfile Profile { get; set; } = null!;
 
         public string? Country { get; set; }
         public string? City { get; set; }

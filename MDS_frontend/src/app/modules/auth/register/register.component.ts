@@ -8,6 +8,8 @@ import { User } from 'src/app/interfaces/user';
 import { CustomValidators } from 'src/app/custom-validators';
 import { UserProfile } from 'src/app/interfaces/user-profile';
 import { UserProfilesService } from 'src/app/services/user-profiles.service';
+import { UserAddress } from 'src/app/interfaces/user-address';
+import { UserAddressesService } from 'src/app/services/user-addresses.service';
 
 @Component({
   selector: 'app-register',
@@ -19,6 +21,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private userProfilesService: UserProfilesService,
+    private userAddressesService: UserAddressesService,
     private router: Router,
     private dialog: MatDialog
   ) { }
@@ -57,7 +60,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public register(): void {
-    console.log(this.registerForm.value)
+    //console.log(this.registerForm.value)
 
     const newUser: User = {
       email: this.registerForm.value.email,
@@ -71,12 +74,18 @@ export class RegisterComponent implements OnInit {
       lastName: this.registerForm.value.lastname,
       owner: newUser
     }
+
+    const newAddress: UserAddress = {
+      email: this.registerForm.value.email
+    }
     
     this.usersService.createUser(newUser).subscribe(() => {
       this.userProfilesService.createUserProfile(newProfile).subscribe(() => {
-        localStorage.setItem('Role', 'User');
-        localStorage.setItem('User', newUser.password);
-        this.router.navigate(['/user', newUser.username]);
+        this.userAddressesService.createUserAddress(newAddress).subscribe(() => {
+          localStorage.setItem('Role', 'User');
+          localStorage.setItem('User', newUser.password);
+          this.router.navigate(['/user', newUser.username]);
+        })
       })
     });
   }

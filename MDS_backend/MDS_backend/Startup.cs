@@ -57,6 +57,9 @@ namespace MDS_backend
             services.AddTransient<IUserProfilesRepository, UserProfilesRepository>();
             services.AddTransient<IUserProfilesManager, UserProfilesManager>();
 
+            services.AddTransient<IUserAddressesRepository, UserAddressesRepository>();
+            services.AddTransient<IUserAddressesManager, UserAddressesManager>();
+
             services.AddTransient<IBandsRepository, BandsRepository>();
             services.AddTransient<IBandsManager, BandsManager>();
 
