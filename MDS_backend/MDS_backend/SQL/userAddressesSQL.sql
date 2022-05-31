@@ -1,23 +1,30 @@
-﻿
-INSERT INTO [dbo].[UserAddresses](email, Country, City, Street) 
-VALUES ('email@gmail.com', 'USA', 'Chicago', 'Harrison street');
+﻿--TRUNCATE TABLE [dbo].[UserAddresses];
+--GO
+
+INSERT INTO [dbo].[UserAddresses](UserId, Country, City, Street) 
+VALUES (1, 'USA', 'Chicago', 'Harrison street');
 GO
 
-INSERT INTO [dbo].[UserAddresses](email, Country, City, Street) 
-VALUES ('myemail@yahoo.eu', 'USA', 'Chicago', 'Harrison street');
+INSERT INTO [dbo].[UserAddresses](UserId, Country, City, Street) 
+VALUES (2, 'USA', 'Chicago', 'Harrison street');
 GO
 
-INSERT INTO [dbo].[UserAddresses](email, Country, City, Street) 
-VALUES ('email_1@yahoo.com', 'France', 'Paris', null);
+INSERT INTO [dbo].[UserAddresses](UserId, Country, City, Street) 
+VALUES (3, 'France', 'Paris', null);
 GO
 
-INSERT INTO [dbo].[UserAddresses](email, Country, City, Street) 
-VALUES ('email_2@yahoo.com', 'France', 'Paris', 'Avenue Victor Hugo');
+INSERT INTO [dbo].[UserAddresses](UserId, Country, City, Street) 
+VALUES (4, 'France', 'Paris', 'Avenue Victor Hugo');
 GO
 
-INSERT INTO [dbo].[UserAddresses](email, Country, City, Street) 
-VALUES ('email_3@yahoo.com', 'France', 'Paris', 'Rue Balard');
+INSERT INTO [dbo].[UserAddresses](UserId, Country, City, Street) 
+VALUES (5, 'France', 'Paris', 'Rue Balard');
 GO
+
+INSERT INTO [dbo].[UserAddresses](UserId, Country, City, Street) 
+VALUES (6, 'USA', 'Chicago', null);
+GO
+
 
 SELECT * FROM [dbo].[UserAddresses];
 GO

@@ -9,7 +9,7 @@ namespace MDS_backend.Managers
         List<MusicalBand> GetBandsWithMembers();
         MusicalBand GetBandById(int id);
 
-        void Create(MusicalBandModel model);
+        int Create(MusicalBandModel model);
         void Update(MusicalBandModel model);
         void Delete(int id);
     }

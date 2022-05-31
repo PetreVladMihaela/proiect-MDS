@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { UserAddress } from 'src/app/interfaces/user-address';
 import { UserProfile } from 'src/app/interfaces/user-profile';
 import { UserAddressesService } from 'src/app/services/user-addresses.service';
 import { UserProfilesService } from 'src/app/services/user-profiles.service';
@@ -14,13 +13,12 @@ import { UserProfilesService } from 'src/app/services/user-profiles.service';
 export class EditUserProfileComponent implements OnInit {
 
   public editUserProfileForm: FormGroup = new FormGroup({
-    email: new FormControl(''),
     firstName: new FormControl('Generic'),
     lastName: new FormControl('User'),
     phone: new FormControl('', [Validators.minLength(10), Validators.maxLength(20)]),
     age: new FormControl(0),
     occupation: new FormControl(''),
-    canSing: new FormControl('False'),
+    canSing: new FormControl(false),
     playedInstrument: new FormControl(''),
     preferredMusicGenre: new FormControl(''),
     trait1: new FormControl(''),
@@ -31,7 +29,7 @@ export class EditUserProfileComponent implements OnInit {
                               "Ingenious", "Level-headed", "Observant", "Organized"];
 
   public addressForm: FormGroup = new FormGroup({
-    email: new FormControl(''),
+    userId: new FormControl(0),
     country: new FormControl(''),
     city: new FormControl(''),
     street: new FormControl(''),
@@ -108,10 +106,11 @@ export class EditUserProfileComponent implements OnInit {
   }
 
   public saveFormData(): void {
-    //console.log(this.editUserProfileForm.value)
-      this.profilesService.editUserProfile(this.editUserProfileForm.value).subscribe(() => {
-        this.addressesService.editUserAddress(this.addressForm.value).subscribe(() => {
-          this.dialogRef.close();
+    let userProfile = this.editUserProfileForm.value;
+    userProfile.owner = this.data.owner;
+    this.profilesService.editUserProfile(this.editUserProfileForm.value).subscribe(() => {
+      this.addressesService.editUserAddress(this.addressForm.value).subscribe(() => {
+        this.dialogRef.close();
       });
     });
   }

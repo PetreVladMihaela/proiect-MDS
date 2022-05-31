@@ -24,10 +24,10 @@ namespace MDS_backend.Controllers
             return Ok(manager.GetAllUserAddresses());
         }
 
-        [HttpGet("getByEmail/{email}")]
-        public IActionResult GetUserAddressByEmail([FromRoute] string email)
+        [HttpGet("getByUserId/{id}")]
+        public IActionResult GetUserAddressByEmail([FromRoute] int id)
         {
-            return Ok(manager.GetUserAddressByEmail(email));
+            return Ok(manager.GetUserAddressByUserId(id));
         }
 
 
@@ -45,10 +45,10 @@ namespace MDS_backend.Controllers
             return Ok();
         }
 
-        [HttpDelete("{email}")]
-        public IActionResult Delete([FromRoute] string email)
+        [HttpDelete("{id}")]
+        public IActionResult Delete([FromRoute] int id)
         {
-            manager.Delete(email);
+            manager.Delete(id);
             return Ok();
         }
 

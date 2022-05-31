@@ -20,7 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatDialogModule, // <- pentru dialogul modal de login
     MatCardModule,
-    MatSelectModule 
+    MatSelectModule
   ],
 
   exports: [ // materialele importate in acest modul trebuie si exportate, pt. a putea fi accesate in restul aplicatiei  

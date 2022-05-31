@@ -43,10 +43,10 @@
 
         <div class="radio-buttons">
           <mat-label for="canSing">Can you sing?</mat-label>
-          <input type="radio" value="True" name="canSing" formControlName="canSing">
-          <mat-label for="True">Yes</mat-label>
-          <input type="radio" value="False" name="canSing" formControlName="canSing">
-          <label for="False">No</label>
+          <input type="radio" [value]=true name="canSing" formControlName="canSing">
+          <mat-label for=true>Yes</mat-label>
+          <input type="radio" [value]=false name="canSing" formControlName="canSing">
+          <label for=false>No</label>
        </div>
 
        <mat-form-field color="accent" appearance="outline">
@@ -73,7 +73,7 @@
             <mat-option>None</mat-option>
             <mat-option *ngFor="let trait of traits" [value]="trait">{{trait}}</mat-option>
         </mat-select>
-  </mat-form-field>
+      </mat-form-field>
     </form>
 
     <form [formGroup] = "addressForm" class="address-form"> 

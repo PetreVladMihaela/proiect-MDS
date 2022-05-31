@@ -6,11 +6,15 @@
   align-items: center;
   background-color: lightseagreen;
 
+  .see-account {
+    margin-bottom: 30px;
+  }
+
   .title {
     font-size: 28px;
     font-weight: bold;
     color: rgb(46, 46, 49);
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 25px;
   }
 
@@ -19,6 +23,8 @@
     padding-bottom: 15px;
     width: 80%;
     max-width: 450px;
+    overflow-y: auto;
+    margin-bottom: 25px;
 
     .profile-header {
       background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');
@@ -30,7 +36,7 @@
       .details {
         text-align: justify;
         font-size: 14px;
-        margin-top: 15px;
+        margin-top: 20px;
         margin-left: 20px;
       }
 
@@ -40,6 +46,14 @@
 
       li {
         margin-left: 20px;
+      }
+
+      a:link {
+        color: royalblue;
+      }
+
+      a:visited {
+        color: violet;
       }
     }
 

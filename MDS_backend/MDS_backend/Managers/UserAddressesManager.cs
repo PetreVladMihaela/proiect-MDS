@@ -19,17 +19,17 @@ namespace MDS_backend.Managers
             return userAddressesRepository.GetUserAddressesIQueryable().ToList();
         }
 
-        public UserAddress? GetUserAddressByEmail(string email)
+        public UserAddress? GetUserAddressByUserId(int id)
         {
             var addresses = userAddressesRepository.GetUserAddressesIQueryable();
-            return addresses.FirstOrDefault(a => a.Email == email);
+            return addresses.FirstOrDefault(a => a.UserId == id);
         }
 
         public void Create(UserAddressModel model)
         {
             var newUserAddress = new UserAddress
             {
-                Email = model.Email,
+                UserId = model.UserId,
                 Country = model.Country,
                 City = model.City,
                 Street = model.Street
@@ -39,8 +39,7 @@ namespace MDS_backend.Managers
 
         public void Update(UserAddressModel model)
         {
-            var address = GetUserAddressByEmail(model.Email);
-            //address.Email = model.Email;
+            var address = GetUserAddressByUserId(model.UserId);
             if (address != null)
             {
                 address.Country = model.Country;
@@ -50,9 +49,9 @@ namespace MDS_backend.Managers
             }
         }
 
-        public void Delete(string email)
+        public void Delete(int id)
         {
-            var address = GetUserAddressByEmail(email);
+            var address = GetUserAddressByUserId(id);
             if (address != null)
                 userAddressesRepository.Delete(address);
         }

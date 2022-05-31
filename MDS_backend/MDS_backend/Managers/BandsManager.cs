@@ -30,7 +30,7 @@ namespace MDS_backend.Managers
             return band;
         }
 
-        public void Create(MusicalBandModel model)
+        public int Create(MusicalBandModel model)
         {
             var newBand = new MusicalBand
             {
@@ -40,7 +40,7 @@ namespace MDS_backend.Managers
                 DateFormed = model.DateFormed,
                 Complete = model.Complete
             };
-            bandsRepository.Create(newBand);
+            return bandsRepository.Create(newBand);
         }
 
         public void Delete(int id)

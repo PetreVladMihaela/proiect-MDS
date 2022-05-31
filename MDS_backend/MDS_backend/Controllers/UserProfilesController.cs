@@ -42,7 +42,6 @@ namespace MDS_backend.Controllers
         }
 
 
-
         [HttpPost]
         public IActionResult Create([FromBody] UserProfileModel model)
         {
@@ -51,18 +50,26 @@ namespace MDS_backend.Controllers
         }
 
 
-        [HttpDelete("{email}")]
-        public IActionResult Delete([FromRoute] string email)
-        {
-            manager.Delete(email);
-            return Ok();
-        }
-
-
         [HttpPut]
         public IActionResult Update([FromBody] UserProfileModel model)
         {
             manager.Update(model);
+            return Ok();
+        }
+
+
+        [HttpPut("addBandToUserProfile")]
+        public IActionResult AddBand([FromBody] UserProfileModel model)
+        {
+            manager.AddBand(model);
+            return Ok();
+        }
+
+
+        [HttpDelete("{email}")]
+        public IActionResult Delete([FromRoute] string email)
+        {
+            manager.Delete(email);
             return Ok();
         }
 

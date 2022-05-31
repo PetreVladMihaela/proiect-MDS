@@ -24,8 +24,8 @@ export class UsersService {
   ) { }
 
   // trebuie creata o interfata User
-  public createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.url, user) // acceseaza ruta de post din controller
+  public createUser(user: User): Observable<number> {
+    return this.http.post<number>(this.url, user);
   }
 
   public getAllUsers(): Observable<User[]> {
@@ -50,6 +50,10 @@ export class UsersService {
 
   public getUserByEmail(email: string): Observable<User> {
     return this.http.get<User>(`${this.url+"/getByEmail"}/${email}`);
+  }
+
+  public updateUser(user: User): Observable<User> {
+    return this.http.put<User>(this.url, user);
   }
 
 }

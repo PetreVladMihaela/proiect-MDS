@@ -1,5 +1,5 @@
 export interface UserAddress {
-    email: string
+    userId: number
     country?: string
     city?: string
     street?: string

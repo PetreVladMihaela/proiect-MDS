@@ -24,12 +24,6 @@ namespace MDS_backend.Migrations
 
             modelBuilder.Entity("MDS_backend.Entities.BandHQ", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<int>("BandId")
                         .HasColumnType("int");
 
@@ -47,10 +41,7 @@ namespace MDS_backend.Migrations
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("BandId")
-                        .IsUnique();
+                    b.HasKey("BandId");
 
                     b.ToTable("Headquarters");
                 });
@@ -83,7 +74,14 @@ namespace MDS_backend.Migrations
 
             modelBuilder.Entity("MDS_backend.Entities.User", b =>
                 {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Password")
@@ -96,15 +94,21 @@ namespace MDS_backend.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Email");
+                    b.HasKey("UserId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("Username")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MDS_backend.Entities.UserAddress", b =>
                 {
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
@@ -115,15 +119,15 @@ namespace MDS_backend.Migrations
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Email");
+                    b.HasKey("UserId");
 
                     b.ToTable("UserAddresses");
                 });
 
             modelBuilder.Entity("MDS_backend.Entities.UserProfile", b =>
                 {
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Age")
                         .HasColumnType("int");
@@ -159,7 +163,7 @@ namespace MDS_backend.Migrations
                     b.Property<string>("Trait2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Email");
+                    b.HasKey("UserId");
 
                     b.HasIndex("BandId");
 
@@ -181,7 +185,7 @@ namespace MDS_backend.Migrations
                 {
                     b.HasOne("MDS_backend.Entities.UserProfile", "Profile")
                         .WithOne("Address")
-                        .HasForeignKey("MDS_backend.Entities.UserAddress", "Email")
+                        .HasForeignKey("MDS_backend.Entities.UserAddress", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -196,7 +200,7 @@ namespace MDS_backend.Migrations
 
                     b.HasOne("MDS_backend.Entities.User", "Owner")
                         .WithOne("Profile")
-                        .HasForeignKey("MDS_backend.Entities.UserProfile", "Email")
+                        .HasForeignKey("MDS_backend.Entities.UserProfile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

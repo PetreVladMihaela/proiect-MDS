@@ -46,8 +46,7 @@ namespace MDS_backend.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] MusicalBandModel model)
         {
-            manager.Create(model);
-            return Ok();
+            return Ok(manager.Create(model));
         }
 
 

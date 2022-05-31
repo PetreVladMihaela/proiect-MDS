@@ -2,7 +2,7 @@ import { User } from "./user"
 import { UserAddress } from "./user-address"
 
 export interface UserProfile {
-    email: string
+    userId: number
     owner: User
     firstName?: string
     lastName?: string

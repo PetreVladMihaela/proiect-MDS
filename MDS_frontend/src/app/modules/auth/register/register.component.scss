@@ -4,6 +4,8 @@
     flex-direction: column;
     align-items: center;
     background-color: steelblue;
+    min-width: 350px;
+    overflow-y: auto;
 
     .greeting {
       margin-top: 20px;
@@ -12,6 +14,10 @@
 
     .alert {
       color: darkred;
+    }
+
+    .loginButton {
+      margin-bottom: 10px;
     }
   
     .register-section {
@@ -29,9 +35,11 @@
         flex-direction: column;
         align-items: center;
         //background-color: lightblue;
+        overflow-y: auto;
 
         mat-form-field {
           width: 100%;
+          max-width: 300px;
         }
       }
     }

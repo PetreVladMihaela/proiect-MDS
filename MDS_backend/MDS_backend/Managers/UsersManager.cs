@@ -24,6 +24,12 @@ namespace MDS_backend.Managers
             return usersRepository.GetUsersWithProfile().ToList();
         }
 
+        public User GetUserById(int id)
+        {
+            var user = usersRepository.GetUsersIQueryable().First(u => u.UserId == id);
+            return user;
+        }
+
         public User? GetUserByEmail(string email)
         {
             var user = usersRepository.GetUsersIQueryable().FirstOrDefault(u => u.Email == email);
@@ -50,15 +56,16 @@ namespace MDS_backend.Managers
         public void Delete(string email)
         {
             var user = GetUserByEmail(email);
-            usersRepository.Delete(user);
+            if (user != null)
+                usersRepository.Delete(user);
         }
 
         public void Update(UserModel model)
         {
-            var user = GetUserByEmail(model.Email);
+            var user = GetUserById(model.UserId);
             user.Email = model.Email;
             user.Password = model.Password;
-            user.Username = model.Email;
+            user.Username = model.Username;
             usersRepository.Update(user);
         }
     }

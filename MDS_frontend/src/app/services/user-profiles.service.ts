@@ -26,4 +26,8 @@ export class UserProfilesService {
     return this.http.put<UserProfile>(this.url, profile);
   }
 
+  public addBandToUserProfile(profile: UserProfile): Observable<UserProfile> {
+    return this.http.put<UserProfile>(this.url+"/addBandToUserProfile", profile);
+  }
+
 }

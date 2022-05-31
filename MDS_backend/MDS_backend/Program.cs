@@ -33,3 +33,8 @@ namespace MDS_backend
 //app.UseAuthorization();
 //app.MapControllers();
 //app.Run();
+
+
+// Package Manager Console:
+//   Add-Migration InitialCreate
+//   Update-Database

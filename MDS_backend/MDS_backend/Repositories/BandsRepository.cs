@@ -23,11 +23,11 @@ namespace MDS_backend.Repositories
             return bands;
         }
 
-
-        public void Create(MusicalBand band)
+        public int Create(MusicalBand band)
         {
             db.MusicalBands.Add(band);
             db.SaveChanges();
+            return band.BandId;
         }
 
         public void Update(MusicalBand band)

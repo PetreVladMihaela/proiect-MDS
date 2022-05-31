@@ -8,6 +8,3 @@ GO
 
 SELECT * FROM [dbo].[Headquarters];
 GO
-
-DBCC CHECKIDENT ('Headquarters', RESEED, 2);
-GO

@@ -38,13 +38,13 @@ namespace MDS_backend.Entities
             builder.Entity<UserProfile>()
                 .HasOne(profile => profile.Owner)
                 .WithOne(user => user.Profile)
-                .HasForeignKey<UserProfile>(profile => profile.Email);
+                .HasForeignKey<UserProfile>(profile => profile.UserId);
 
             //One to One
             builder.Entity<UserAddress>()
                 .HasOne(address => address.Profile)
                 .WithOne(profile => profile.Address)
-                .HasForeignKey<UserAddress>(address => address.Email);
+                .HasForeignKey<UserAddress>(address => address.UserId);
 
             //One to One
             builder.Entity<BandHQ>()

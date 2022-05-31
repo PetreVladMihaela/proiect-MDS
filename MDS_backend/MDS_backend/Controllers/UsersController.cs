@@ -50,11 +50,22 @@ namespace MDS_backend.Controllers
         }
 
 
-
         [HttpPost]
         public IActionResult Create([FromBody] UserModel model)
         {
             manager.Create(model);
+            var newUser = manager.GetUserByUsername(model.Username);
+            if (newUser != null)
+                return Ok(newUser.UserId);
+            else
+                return NotFound();
+        }
+
+
+        [HttpPut]
+        public IActionResult Update([FromBody] UserModel model)
+        {
+            manager.Update(model);
             return Ok();
         }
 
@@ -63,14 +74,6 @@ namespace MDS_backend.Controllers
         public IActionResult Delete([FromRoute] string email)
         {
             manager.Delete(email);
-            return Ok();
-        }
-
-
-        [HttpPut]
-        public IActionResult Update([FromBody] UserModel model)
-        {
-            manager.Update(model);
             return Ok();
         }
 

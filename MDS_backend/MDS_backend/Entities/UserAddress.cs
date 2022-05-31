@@ -5,7 +5,7 @@ namespace MDS_backend.Entities
     public class UserAddress
     {
         [Required, Key]
-        public string Email { get; set; } = null!;
+        public int UserId { get; set; }
         public virtual UserProfile Profile { get; set; } = null!;
 
         public string? Country { get; set; }

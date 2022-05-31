@@ -5,7 +5,7 @@ namespace MDS_backend.Entities
     public class UserProfile
     {
         [Required, Key]
-        public string Email { get; set; } = null!;
+        public int UserId { get; set; }
         public virtual User Owner { get; set; } = null!;
 
         [StringLength(20, MinimumLength = 10)]
@@ -18,10 +18,7 @@ namespace MDS_backend.Entities
 
         public string? Trait1 { get; set; }
         public string? Trait2 { get; set; }
-
-        //public bool? IsMusician{ get; set; }
         public bool? CanSing { get; set; }
-
         //public List<string>? PlayedInstruments { get; set; }
         public string? PlayedInstrument { get; set; }
         public string? PreferredMusicGenre { get; set; }

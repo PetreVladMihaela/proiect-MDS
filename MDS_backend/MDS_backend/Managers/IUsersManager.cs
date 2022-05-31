@@ -7,6 +7,7 @@ namespace MDS_backend.Managers
     {
         List<User> GetAllUsers();
         List<User> GetAllUsersWithProfile();
+        User GetUserById(int id);
         User? GetUserByEmail(string email);
         User? GetUserByUsername(string username);
 

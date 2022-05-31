@@ -6,6 +6,8 @@ namespace MDS_backend.Entities
     {
         [Required, Key]
         public int BandId { get; set; }
+
+        [Required]
         public string Name { get; set; } = null!;
         public string? MusicGenre { get; set; }
         public DateTime? DateFormed { get; set; }

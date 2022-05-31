@@ -7,7 +7,7 @@ namespace MDS_backend.Repositories
         IQueryable<MusicalBand> GetMusicalBands();
         IQueryable<MusicalBand> GetBandsWithMembers();
 
-        void Create(MusicalBand band);
+        int Create(MusicalBand band);
         void Update(MusicalBand band);
         void Delete(MusicalBand band);
     }

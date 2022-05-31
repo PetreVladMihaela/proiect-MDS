@@ -63,24 +63,27 @@ export class RegisterComponent implements OnInit {
     //console.log(this.registerForm.value)
 
     const newUser: User = {
+      userId: 0,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
       username: this.registerForm.value.username,
     }
 
     const newProfile: UserProfile = {
-      email: this.registerForm.value.email,
+      userId: 0,
       firstName: this.registerForm.value.firstname,
       lastName: this.registerForm.value.lastname,
       owner: newUser
     }
 
     const newAddress: UserAddress = {
-      email: this.registerForm.value.email
+      userId: 0
     }
     
-    this.usersService.createUser(newUser).subscribe(() => {
+    this.usersService.createUser(newUser).subscribe((userId: number) => {
+      newProfile.userId = userId;
       this.userProfilesService.createUserProfile(newProfile).subscribe(() => {
+        newAddress.userId = userId;
         this.userAddressesService.createUserAddress(newAddress).subscribe(() => {
           localStorage.setItem('Role', 'User');
           localStorage.setItem('User', newUser.password);
@@ -111,22 +114,18 @@ export class RegisterComponent implements OnInit {
     const emailField: string = this.registerForm.value.email
     if(usernameField) {
       this.usersService.checkIfUsernameExists(usernameField).subscribe((exists) => {
-        if(exists) {
+        if(exists)
           this.usernameExists = true
-        }
-        else {
+        else
           this.usernameExists = false
-        }
       })
     }
     if(emailField) {
       this.usersService.checkIfEmailExists(emailField).subscribe((exists) => {
-        if(exists) {
+        if(exists)
           this.emailExists = true
-        }
-        else {
+        else
           this.emailExists = false
-        }
       })
     }
     // const emailField: string = this.registerForm.value.email
