@@ -1,0 +1,68 @@
+<div class="container">
+    <h1 class="title">User Profile</h1>
+
+    <button mat-raised-button color="primary" (click)="goToAccountInfo()" *ngIf="canEdit" class="see-account">
+        See Account Info
+    </button>
+
+    <mat-card class="profile-card">
+        <mat-card-header>
+            <div mat-card-avatar class="profile-header"></div>
+            <mat-card-title>{{user.username}}</mat-card-title>
+            <mat-card-subtitle>User Info</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="profile-info">
+            <p class="details">
+                First Name: {{userProfile.firstName}} 
+            </p>
+            <p class="details">
+                Last Name: {{userProfile.lastName}} 
+            </p>
+            <p class="details">
+                Age: {{userProfile.age}}
+            </p>
+            <p class="details">
+                Occupation: {{userProfile.occupation}}
+            </p>
+            <p class="details">Contact Info:</p>
+            <ul>
+                <li>Email: {{userProfile.owner.email}}</li>
+                <li>Phone: {{userProfile.phone}}</li>
+            </ul>
+            <p class="details">
+                Traits: {{userProfile.trait1}}
+                <span *ngIf="userProfile.trait2">, {{userProfile.trait2}}</span>
+            </p>
+            <!-- <p  class="details">
+                Can Sing: {{userProfile.canSing}}
+            </p> -->
+            <p *ngIf="userProfile.canSing" class="details">
+                Can Sing: Yes
+            </p>
+            <p *ngIf="!userProfile.canSing" class="details">
+                Can Sing: No
+            </p>
+            <p class="details">
+                Played Instrument: {{userProfile.playedInstrument}}
+            </p>
+            <p class="details">
+                Preferred Music Genre: {{userProfile.preferredMusicGenre}}
+            </p>
+            <p class="details">Address:</p>
+            <ul>
+                <li>Country: {{userProfile.address?.country}}</li>
+                <li>City: {{userProfile.address?.city}}</li>
+                <li>Street: {{userProfile.address?.street}}</li>
+            </ul>
+            <p *ngIf="userProfile.bandId" class="details">
+                Member in the band <a routerLink="/band/{{userProfile.bandId}}">{{musicalBand.name}}</a>
+            </p>
+            <button mat-raised-button color="accent" (click)="createBand()" *ngIf="!userProfile.bandId && canEdit" class="details">
+                Create band
+            </button>
+        </mat-card-content>
+        <mat-card-actions *ngIf="canEdit" class="edit-button">
+            <button mat-button (click)="editUserProfile()">EDIT</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

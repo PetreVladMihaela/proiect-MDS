@@ -1,0 +1,78 @@
+<div class="container">
+<button mat-raised-button class="goBackButton" color="primary" (click)="goToProfile()">Go To Profile</button>
+<mat-card class="user-info-card">
+    <mat-card-header>
+        <mat-card-title>Account Info</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="account-info">
+        <p class="details">
+            Username: {{user?.username}} 
+        </p>
+        <p class="details">
+            Email: {{user?.email}} 
+        </p>
+        <p class="details">
+            Password: {{user?.password}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="edit-button" mat-stroked-button color="accent" (click)="editAccountInfo()">{{buttonText}}</button>
+    </mat-card-actions>
+</mat-card>
+
+<div class="edit-info" *ngIf="editInfo">
+  <form [formGroup]="changeInfoForm" class="change-info-form">
+
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input (focusout)="onFocusOut()" required matInput placeholder="Email" formControlName="email">
+      <div *ngIf="email.touched" class="alert">
+        <div *ngIf="email.errors?.['required']">
+          Email is required!
+        </div>
+        <div *ngIf="emailExists">
+          An account for this email already exists.
+        </div>
+      </div>
+    </mat-form-field>
+  
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input required matInput placeholder="Password" formControlName="password">
+      <div *ngIf="password.dirty || password.touched" class="alert">
+        <div *ngIf="password.errors?.['required']">
+          Password is required!
+        </div>
+        <div *ngIf="password.errors?.['minlength']">
+          Password must be at least 5 characters long.
+        </div>
+        <div *ngIf="password.errors?.['maxlength']">
+          Password cannot have more than 20 characters.
+        </div>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Username</mat-label>
+      <input (focusout)="onFocusOut()" matInput type="username" placeholder="Username" formControlName="username">
+      <div *ngIf="username.dirty || username.touched" class="alert">
+        <div *ngIf="username.errors?.['required']">
+          Username is required!
+        </div>
+        <div *ngIf="username.errors?.['maxlength']">
+          Username cannot have more than 30 characters.
+        </div>
+        <div *ngIf="username.errors?.['forbiddenChar']">
+          Username can contain only letters, numbers and the underscore.
+        </div>
+        <div *ngIf="usernameExists">
+          This username already exists, please choose a different one.
+        </div>
+      </div>
+    </mat-form-field>
+  </form>
+
+  <button mat-stroked-button color="basic" [disabled]="!changeInfoForm.valid || emailExists || usernameExists" 
+          (click)="saveInfo()" class="saveButton">Save</button>
+</div>
+</div>
