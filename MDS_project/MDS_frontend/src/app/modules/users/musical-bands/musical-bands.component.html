@@ -1,19 +1,41 @@
 <div class="container">
-    <mat-card-header>
-        <mat-card-title>{{musicalBand.name}}</mat-card-title>
-        <mat-card-subtitle>Band Info</mat-card-subtitle>
-    </mat-card-header>
 
-    <mat-card class="profile-card">
-        <mat-card-content class="profile-info">
-            <p class="details">
-                Music Genre: {{musicalBand.musicGenre}} 
-            </p>
+    <mat-card class="info-card">
+        <mat-card-header>
+            <mat-card-title class="title">{{musicalBand.name}}</mat-card-title>
+            <mat-card-subtitle class="subtitle" *ngIf="!musicalBand.complete">Incomplete Band</mat-card-subtitle>
+            <mat-card-subtitle class="subtitle" *ngIf="musicalBand.complete">Complete Band</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="band-info">
+            <div class="details"> Band Information:<ol class="info">
+                <li>Music Genre: {{musicalBand.musicGenre}} </li>
+                <li>Date Formed: {{musicalBand.dateFormed | date :'longDate'}} </li>
+                <li class="hq" *ngIf="musicalBand.hq">Headquarters:<ul>
+                    <li>Location:<ul>
+                        <li>Country: {{musicalBand.hq.country}}</li>
+                        <li>City: {{musicalBand.hq.city}}</li>
+                        <li>Address: {{musicalBand.hq.address}}</li>
+                    </ul></li>
+                    <li *ngIf="musicalBand.hq.squareMeters">Size: {{musicalBand.hq.squareMeters}} m<sup>2</sup></li>
+                    <li *ngIf="!musicalBand.hq.squareMeters">Size: unknown</li></ul>
+                </li>
+            </ol> </div>
+
+            <div class="details"> Members:
+            <ng-container *ngFor="let member of musicalBand.members">
+                <li class="members" *ngIf="member.firstName && member.lastName">
+                    <a routerLink="/user/{{member.owner.username}}">{{member.firstName}} {{member.lastName}}</a>
+                    — playing {{member.playedInstrument | lowercase}}
+                </li>
+                <li class="members" *ngIf="!member.firstName && !member.lastName">
+                    <a routerLink="/user/{{member.owner.username}}">{{member.owner.username}}</a>
+                </li>
+            </ng-container> </div>
         </mat-card-content>
-    </mat-card>
 
-    <mat-card-actions class="survey-button">
-        <button mat-button (click)="takeSurvey()">Take Band Member Survey</button>
-    </mat-card-actions>
+        <mat-card-actions class="survey-button">
+            <button mat-raised-button color="accent" (click)="takeSurvey()">Take Band Member Survey</button>
+        </mat-card-actions>
+    </mat-card>
 </div>
 

@@ -38,7 +38,7 @@ namespace MDS_backend.Migrations
                     b.Property<int?>("SquareMeters")
                         .HasColumnType("int");
 
-                    b.Property<string>("Street")
+                    b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BandId");

@@ -5,7 +5,7 @@
         public int BandId { get; set; }
         public string Country { get; set; } = null!;
         public string City { get; set; } = null!;
-        public string? Street { get; set; }
+        public string? Address { get; set; }
         public int? SquareMeters { get; set; }
     }
 }

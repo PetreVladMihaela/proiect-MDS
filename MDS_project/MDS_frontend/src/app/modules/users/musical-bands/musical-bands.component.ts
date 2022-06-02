@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { MusicalBand } from 'src/app/interfaces/musical-band';
 import { MusicalBandsService } from 'src/app/services/musical-bands.service';
 import { BandMembersSurveyComponent } from '../band-members-survey/band-members-survey.component';
+import { BandHQ } from 'src/app/interfaces/band-hq';
 
 @Component({
   selector: 'app-musical-bands',
@@ -36,6 +37,7 @@ export class MusicalBandsComponent implements OnInit, OnDestroy {
     this.bandsService.getBandById(id).subscribe((band: MusicalBand) => {
       if(band) {
         this.musicalBand = band
+        //console.log(this.musicalBand)
       }
     });
   }

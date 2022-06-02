@@ -47,7 +47,7 @@ namespace MDS_backend.Migrations
                     BandId = table.Column<int>(type: "int", nullable: false),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SquareMeters = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

@@ -37,7 +37,7 @@ namespace MDS_backend.Controllers
         [HttpGet("withOwner/{username}")]
         public IActionResult GetUserProfileByOwnerUsername([FromRoute] string username)
         {
-            var profile = manager.GetProfileWithOwnerByUsername(username);
+            var profile = manager.GetProfileByUsername(username);
             return Ok(profile);
         }
 

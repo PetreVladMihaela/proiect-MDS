@@ -19,7 +19,7 @@ namespace MDS_backend.Repositories
 
         public IQueryable<MusicalBand> GetBandsWithMembers()
         {
-            var bands = GetMusicalBands().Include(band => band.Members);
+            var bands = GetMusicalBands().Include(band => band.Members).ThenInclude(profile => profile.Owner);
             return bands;
         }
 

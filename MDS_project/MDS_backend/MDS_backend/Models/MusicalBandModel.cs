@@ -7,5 +7,6 @@
         public string? MusicGenre { get; set; }
         public DateTime? DateFormed { get; set; }
         public bool? Complete { get; set; }
+        public BandHQModel? HQ;
     }
 }
