@@ -15,7 +15,7 @@ export class MusicalBandsService {
   ) { }
 
   public getBandById(id: number): Observable<MusicalBand> {
-    return this.http.get<MusicalBand>(`${this.url}/${id}`);
+    return this.http.get<MusicalBand>(`${this.url+"/withMembers"}/${id}`);
   }
 
   public createBand(band: MusicalBand): Observable<number> {

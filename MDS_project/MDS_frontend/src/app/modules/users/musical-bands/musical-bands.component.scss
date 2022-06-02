@@ -1,0 +1,67 @@
+.container {
+    background-color: darkgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    .info-card {
+        padding: 35px;
+        width: fit-content;
+        overflow-y: auto;
+
+        .title {
+            margin-top: 10px;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+    
+        .subtitle {
+            font-size: 18px;
+        }
+    
+        .details {
+            padding: 25px;
+            border: 5px ridge rgb(136, 136, 146);
+            background-color: rgb(142, 163, 160);
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 30px;
+            font-size: 18px;
+    
+            .info {
+                li {
+                    margin-left: 30px;
+                }
+                margin-bottom: 0px;
+            }
+
+            .info>li { margin-top: 20px; }
+
+            .hq {
+                li {
+                    margin-top: 10px;
+                }
+                margin-right: 10px;
+            }
+
+            .members{
+                a:link {
+                    color: royalblue;
+                }
+                a:visited {
+                    color: blueviolet;
+                }
+        
+                margin-left: 50px;
+                margin-top: 15px;
+                margin-right: 10px;
+            }
+        }
+
+        .survey-button {
+            margin-left: 20px;
+            font-size: 16px;
+        }
+    }
+}

@@ -7,7 +7,7 @@ namespace MDS_backend.Managers
     { 
         List<UserProfile> GetUserProfiles();
         UserProfile GetProfileByEmail(string email);
-        UserProfile? GetProfileWithOwnerByUsername(string username);
+        UserProfile? GetProfileByUsername(string username);
 
         void AddBand(UserProfileModel model);
         void Create(UserProfileModel model);

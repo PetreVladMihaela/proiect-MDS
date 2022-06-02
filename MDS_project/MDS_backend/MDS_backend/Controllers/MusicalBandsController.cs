@@ -25,14 +25,6 @@ namespace MDS_backend.Controllers
             return Ok(bands);
         }
 
-
-        [HttpGet("withMembers")]
-        public IActionResult GetUsersWithProfile()
-        {
-            var bands = manager.GetBandsWithMembers();
-            return Ok(bands);
-        }
-
  
         [HttpGet("{id}")]
         public IActionResult GetBandById([FromRoute] int id)
@@ -41,6 +33,13 @@ namespace MDS_backend.Controllers
             return Ok(band);
         }
 
+
+        [HttpGet("withMembers/{id}")]
+        public IActionResult GetAllBandsWithMembers([FromRoute] int id)
+        {
+            var bands = manager.GetBandWithMembersById(id);
+            return Ok(bands);
+        }
 
 
         [HttpPost]

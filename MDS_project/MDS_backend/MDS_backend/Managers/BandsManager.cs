@@ -30,6 +30,12 @@ namespace MDS_backend.Managers
             return band;
         }
 
+        public MusicalBand GetBandWithMembersById(int id)
+        {
+            var band = bandsRepository.GetBandsWithMembers().First(b => b.BandId == id);
+            return band;
+        }
+
         public int Create(MusicalBandModel model)
         {
             var newBand = new MusicalBand

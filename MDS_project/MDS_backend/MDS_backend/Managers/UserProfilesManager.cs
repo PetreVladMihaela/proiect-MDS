@@ -25,7 +25,7 @@ namespace MDS_backend.Managers
             return profiles.First(p => p.Owner.Email == email); ;
         }
 
-        public UserProfile? GetProfileWithOwnerByUsername(string username)
+        public UserProfile? GetProfileByUsername(string username)
         {
             var profiles = profilesRepository.GetUserProfilesWithAddressAndOwner();
             return profiles.FirstOrDefault(p => p.Owner.Username == username);

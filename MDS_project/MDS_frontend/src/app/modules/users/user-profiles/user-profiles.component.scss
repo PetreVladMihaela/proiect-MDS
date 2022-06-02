@@ -19,7 +19,7 @@
   }
 
   .profile-card {
-    padding: 20px;
+    padding: 25px;
     padding-bottom: 15px;
     width: 80%;
     max-width: 450px;
@@ -35,17 +35,19 @@
     .profile-info {
       .details {
         text-align: justify;
-        font-size: 14px;
-        margin-top: 20px;
+        font-size: 16px;
+        margin-top: 22px;
         margin-left: 20px;
       }
 
       ul {
-        margin-top: -10px;
+        margin-top: -5px;
       }
 
       li {
         margin-left: 20px;
+        font-size: 16px;
+        margin-top: 5px;
       }
 
       a:link {
@@ -62,7 +64,7 @@
       margin-top: -25px;
 
       button {
-        font-size: 16px;
+        font-size: 18px;
       }
     }
   }
