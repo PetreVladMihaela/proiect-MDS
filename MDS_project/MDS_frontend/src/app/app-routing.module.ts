@@ -14,6 +14,10 @@ const routes: Routes = [ // Aici punem caile(rutele) principale ale aplicatiei w
         path: '', //calea initiala -> http://localhost:4200/
         loadChildren: () => import('src/app/modules/users/users.module').then(m => m.UsersModule)
       },
+      {
+        path: '', //calea initiala -> http://localhost:4200/
+        loadChildren: () => import('src/app/modules/musical-bands/musical-bands.module').then(m => m.MusicalBandsModule)
+      },
     ]
   },
 

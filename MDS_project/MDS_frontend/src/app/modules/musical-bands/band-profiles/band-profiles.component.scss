@@ -1,0 +1,81 @@
+.container {
+    background-color: darkgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    .info-card {
+        padding: 35px;
+        width: fit-content;
+        overflow-y: auto;
+
+        .title {
+            margin-top: 10px;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+    
+        .subtitle {
+            font-size: 18px;
+        }
+
+        .band-info {
+            .details {
+                padding: 25px;
+                border: 5px ridge rgb(136, 136, 146);
+                background-color: rgb(142, 163, 160);
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 30px;
+                font-size: 18px;
+        
+                .info {
+                    li {
+                        margin-left: 30px;
+                    }
+                    margin-bottom: 0px;
+                }
+    
+                .info>li { margin-top: 20px; }
+    
+                .hq {
+                    li {
+                        margin-top: 10px;
+                    }
+                    margin-right: 10px;
+                }
+
+                .edit-info-button {
+                    margin-top: 20px;
+                    font-size: 16px;
+                    border-width: 3px;
+                    background-color: rgb(149, 176, 185);
+                }
+
+                .edit-info-button:hover {
+                    background-color: rgb(136, 169, 180);
+                }
+    
+                .members{
+                    a:link {
+                        color: royalblue;
+                    }
+                    a:visited {
+                        color: blueviolet;
+                    }
+            
+                    margin-left: 50px;
+                    margin-top: 15px;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .survey-button {
+            margin-left: 20px;
+            margin-top: 40px;
+            font-size: 16px;
+        }
+    }
+}

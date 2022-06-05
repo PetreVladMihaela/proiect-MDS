@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
-import { User } from '../interfaces/user';
+import { User } from 'src/app/interfaces/user';
 
 // serviciile fac legatura cu backendul
 // in general facem un serviciu pentru fiecare controller din backend

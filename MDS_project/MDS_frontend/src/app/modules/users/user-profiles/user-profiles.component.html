@@ -61,8 +61,8 @@
                 Create band
             </button>
         </mat-card-content>
-        <mat-card-actions *ngIf="canEdit" class="edit-button">
-            <button mat-button (click)="editUserProfile()">EDIT</button>
+        <mat-card-actions *ngIf="canEdit" class="edit-profile">
+            <button mat-button (click)="editUserProfile()"><mat-icon>edit</mat-icon> Edit Profile</button>
         </mat-card-actions>
     </mat-card>
 </div>

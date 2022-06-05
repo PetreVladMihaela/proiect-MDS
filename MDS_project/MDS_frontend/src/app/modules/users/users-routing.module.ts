@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { MusicalBandsComponent } from './musical-bands/musical-bands.component';
 import { UserProfilesComponent } from './user-profiles/user-profiles.component';
 
 const routes: Routes = [
@@ -24,11 +23,6 @@ const routes: Routes = [
   {
     path: 'user', // http://localhost:4200/user/
     redirectTo: 'main' // cand accesam aceasta cale, suntem redirectionati automat catre http://localhost:4200/main 
-  },
-
-  {
-    path: 'band/:id',
-    component: MusicalBandsComponent 
   },
 
   {

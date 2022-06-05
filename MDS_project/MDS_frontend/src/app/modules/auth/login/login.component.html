@@ -2,7 +2,7 @@
   <h1 class='title'> {{pageTitle}} </h1>
 
   <p>If you want to login with your {{otherField}} click here:</p>
-  <button class="changeLogin" mat-raised-button color="accent" (click) = "changeLoginMethod()">{{changeLogin}}</button>
+  <button class="changeLogin" mat-raised-button color="accent" (click)="changeLoginMethod()">{{changeLogin}}</button>
 
   <form [formGroup] = "loginForm" class="login-form"> 
 

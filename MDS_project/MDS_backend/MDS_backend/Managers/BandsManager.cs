@@ -44,7 +44,7 @@ namespace MDS_backend.Managers
                 Name = model.Name,
                 MusicGenre = model.MusicGenre,
                 DateFormed = model.DateFormed,
-                Complete = model.Complete
+                IsComplete = model.IsComplete
             };
             return bandsRepository.Create(newBand);
         }
@@ -60,8 +60,8 @@ namespace MDS_backend.Managers
             var band = GetBandById(model.BandId);
             band.Name = model.Name;
             band.MusicGenre = model.MusicGenre;
-            band.DateFormed = model.DateFormed;
-            band.Complete = model.Complete;
+            //band.DateFormed = model.DateFormed;
+            band.IsComplete = model.IsComplete;
             bandsRepository.Update(band);
         }
     }

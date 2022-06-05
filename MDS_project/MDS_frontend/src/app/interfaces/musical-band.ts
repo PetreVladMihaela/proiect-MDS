@@ -5,8 +5,8 @@ export interface MusicalBand {
     bandId: number
     name: string
     musicGenre?: string
-    dateFormed?: Date
-    complete?: boolean
+    dateFormed: Date
+    isComplete: boolean
     members?: UserProfile[]
     hq?: BandHQ
 }
