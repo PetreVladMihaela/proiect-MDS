@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsersService } from 'src/app/services/users.service';
+import { UsersService } from 'src/app/services/user-services/users.service';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { User } from 'src/app/interfaces/user';
 import { CustomValidators } from 'src/app/custom-validators';
 import { UserProfile } from 'src/app/interfaces/user-profile';
-import { UserProfilesService } from 'src/app/services/user-profiles.service';
+import { UserProfilesService } from 'src/app/services/user-services/user-profiles.service';
 import { UserAddress } from 'src/app/interfaces/user-address';
-import { UserAddressesService } from 'src/app/services/user-addresses.service';
+import { UserAddressesService } from 'src/app/services/user-services/user-addresses.service';
 
 @Component({
   selector: 'app-register',
@@ -86,7 +86,8 @@ export class RegisterComponent implements OnInit {
         newAddress.userId = userId;
         this.userAddressesService.createUserAddress(newAddress).subscribe(() => {
           localStorage.setItem('Role', 'User');
-          localStorage.setItem('User', newUser.password);
+          localStorage.setItem('User', newUser.username);
+          localStorage.setItem('Password', newUser.password);
           this.router.navigate(['/user', newUser.username]);
         })
       })

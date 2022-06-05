@@ -42,14 +42,14 @@
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let trait of traits" [value]="trait">{{trait}}</mat-option>
             </mat-select>
-      </mat-form-field>
+       </mat-form-field>
 
-      <mat-form-field color="accent" appearance="outline">
-        <mat-label>Trait 2</mat-label>
-        <mat-select formControlName="trait2">
-            <mat-option>None</mat-option>
-            <mat-option *ngFor="let trait of traits" [value]="trait">{{trait}}</mat-option>
-        </mat-select>
+       <mat-form-field color="accent" appearance="outline">
+           <mat-label>Trait 2</mat-label>
+           <mat-select formControlName="trait2">
+             <mat-option>None</mat-option>
+             <mat-option *ngFor="let trait of traits" [value]="trait">{{trait}}</mat-option>
+           </mat-select>
        </mat-form-field>
 
        <mat-form-field color="accent" appearance="outline">

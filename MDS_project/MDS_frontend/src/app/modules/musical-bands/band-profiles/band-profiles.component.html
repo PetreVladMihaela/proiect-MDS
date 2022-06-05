@@ -3,8 +3,8 @@
     <mat-card class="info-card">
         <mat-card-header>
             <mat-card-title class="title">{{musicalBand.name}}</mat-card-title>
-            <mat-card-subtitle class="subtitle" *ngIf="!musicalBand.complete">Incomplete Band</mat-card-subtitle>
-            <mat-card-subtitle class="subtitle" *ngIf="musicalBand.complete">Complete Band</mat-card-subtitle>
+            <mat-card-subtitle class="subtitle" *ngIf="!musicalBand.isComplete">Incomplete Band</mat-card-subtitle>
+            <mat-card-subtitle class="subtitle" *ngIf="musicalBand.isComplete">Complete Band</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="band-info">
             <div class="details"> Band Information:<ol class="info">
@@ -18,8 +18,10 @@
                     </ul></li>
                     <li *ngIf="musicalBand.hq.squareMeters">Size: {{musicalBand.hq.squareMeters}} m<sup>2</sup></li>
                     <li *ngIf="!musicalBand.hq.squareMeters">Size: unknown</li></ul>
-                </li>
-            </ol> </div>
+                </li></ol> 
+                <button class="edit-info-button" mat-stroked-button color="basic" *ngIf="canEdit" 
+                (click)="editBand()">Edit Info <mat-icon>edit</mat-icon></button> 
+            </div>
 
             <div class="details"> Members:
             <ng-container *ngFor="let member of musicalBand.members">
@@ -38,4 +40,3 @@
         </mat-card-actions>
     </mat-card>
 </div>
-

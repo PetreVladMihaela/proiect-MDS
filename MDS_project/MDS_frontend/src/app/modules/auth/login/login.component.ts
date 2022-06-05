@@ -3,7 +3,7 @@ import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
-import { UsersService } from 'src/app/services/users.service';
+import { UsersService } from 'src/app/services/user-services/users.service';
 
 // acest modul este folosit pentru a deschide un dialog modal (fereastra modala) pentru login
 @Component({
@@ -77,7 +77,8 @@ export class LoginComponent implements OnInit {
       this.hideWarning = false;
     }
     else {
-      localStorage.setItem('User', result.password);
+      localStorage.setItem('User', result.username);
+      localStorage.setItem('Password', result.password);
       localStorage.setItem('Role', 'User');
       this.router.navigate(['/user', result.username]);
       this.closeDialog();

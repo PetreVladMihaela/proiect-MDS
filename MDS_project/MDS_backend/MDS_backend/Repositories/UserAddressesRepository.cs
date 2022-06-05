@@ -1,5 +1,4 @@
 ﻿using MDS_backend.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace MDS_backend.Repositories
 {

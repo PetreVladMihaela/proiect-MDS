@@ -10,8 +10,8 @@ namespace MDS_backend.Entities
         [Required]
         public string Name { get; set; } = null!;
         public string? MusicGenre { get; set; }
-        public DateTime? DateFormed { get; set; }
-        public bool? Complete { get; set; }
+        public DateTime DateFormed { get; set; }
+        public bool IsComplete { get; set; }
 
         public virtual BandHQ? HQ { get; set; }
         public virtual ICollection<UserProfile> Members { get; set; } = null!;

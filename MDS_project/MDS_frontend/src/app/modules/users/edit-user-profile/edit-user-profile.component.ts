@@ -2,8 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserProfile } from 'src/app/interfaces/user-profile';
-import { UserAddressesService } from 'src/app/services/user-addresses.service';
-import { UserProfilesService } from 'src/app/services/user-profiles.service';
+import { UserAddressesService } from 'src/app/services/user-services/user-addresses.service';
+import { UserProfilesService } from 'src/app/services/user-services/user-profiles.service';
 
 @Component({
   selector: 'app-edit-user-profile',
@@ -15,24 +15,24 @@ export class EditUserProfileComponent implements OnInit {
   public editUserProfileForm: FormGroup = new FormGroup({
     firstName: new FormControl('Generic'),
     lastName: new FormControl('User'),
-    phone: new FormControl('', [Validators.minLength(10), Validators.maxLength(20)]),
-    age: new FormControl(0),
-    occupation: new FormControl(''),
+    phone: new FormControl(null, [Validators.minLength(10), Validators.maxLength(20)]),
+    age: new FormControl(),
+    occupation: new FormControl(),
     canSing: new FormControl(false),
-    playedInstrument: new FormControl(''),
-    preferredMusicGenre: new FormControl(''),
-    trait1: new FormControl(''),
-    trait2: new FormControl('')
+    playedInstrument: new FormControl(),
+    preferredMusicGenre: new FormControl(),
+    trait1: new FormControl(),
+    trait2: new FormControl()
   });
 
   public traits: string[] = ["Analytical", "Charismatic", "Confident", "Creative", "Friendly", "Hard-working",
                               "Ingenious", "Level-headed", "Observant", "Organized"];
 
   public addressForm: FormGroup = new FormGroup({
-    userId: new FormControl(0),
-    country: new FormControl(''),
-    city: new FormControl(''),
-    street: new FormControl(''),
+    userId: new FormControl(),
+    country: new FormControl(),
+    city: new FormControl(),
+    street: new FormControl(),
   });
 
   constructor(

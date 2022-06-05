@@ -63,6 +63,9 @@ namespace MDS_backend
             services.AddTransient<IBandsRepository, BandsRepository>();
             services.AddTransient<IBandsManager, BandsManager>();
 
+            services.AddTransient<IHeadquartersRepository, HeadquartersRepository>();
+            services.AddTransient<IHeadquartersManager, HeadquartersManager>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

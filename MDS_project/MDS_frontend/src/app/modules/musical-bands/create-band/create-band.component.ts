@@ -2,8 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserProfile } from 'src/app/interfaces/user-profile';
-import { MusicalBandsService } from 'src/app/services/musical-bands.service';
-import { UserProfilesService } from 'src/app/services/user-profiles.service';
+import { MusicalBandsService } from 'src/app/services/band-services/musical-bands.service';
+import { UserProfilesService } from 'src/app/services/user-services/user-profiles.service';
 
 @Component({
   selector: 'app-create-band',

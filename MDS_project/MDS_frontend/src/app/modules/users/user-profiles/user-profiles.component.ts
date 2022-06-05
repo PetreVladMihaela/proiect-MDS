@@ -5,9 +5,9 @@ import { Subscription } from 'rxjs/internal/Subscription';
 import { MusicalBand } from 'src/app/interfaces/musical-band';
 import { User } from 'src/app/interfaces/user';
 import { UserProfile } from 'src/app/interfaces/user-profile';
-import { MusicalBandsService } from 'src/app/services/musical-bands.service';
-import { UserProfilesService } from 'src/app/services/user-profiles.service';
-import { CreateBandComponent } from '../create-band/create-band.component';
+import { MusicalBandsService } from 'src/app/services/band-services/musical-bands.service';
+import { UserProfilesService } from 'src/app/services/user-services/user-profiles.service';
+import { CreateBandComponent } from '../../musical-bands/create-band/create-band.component';
 import { EditUserProfileComponent } from '../edit-user-profile/edit-user-profile.component';
 
 @Component({
@@ -33,8 +33,9 @@ export class UserProfilesComponent implements OnInit, OnDestroy {
   public canEdit: boolean = false;
 
   public musicalBand: MusicalBand = {
-    bandId: 0,
-    name: ''
+    bandId: 0, name: '',
+    dateFormed: new Date(),
+    isComplete: false
   }
 
   constructor(
@@ -62,7 +63,10 @@ export class UserProfilesComponent implements OnInit, OnDestroy {
         this.user = profile.owner
 
         let currentUser = localStorage.getItem('User');
-        if(currentUser) { this.canEdit = currentUser === this.user.password; }
+        let currentPassword = localStorage.getItem('Password');
+        if(currentUser && currentPassword)
+          if (currentUser == this.user.username && currentPassword == this.user.password)
+            this.canEdit = true; 
 
         if(profile.bandId) {
           this.bandsService.getBandById(profile.bandId).subscribe((band: MusicalBand) => {

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { CustomValidators } from 'src/app/custom-validators';
 import { User } from 'src/app/interfaces/user';
-import { UsersService } from 'src/app/services/users.service';
+import { UsersService } from 'src/app/services/user-services/users.service';
 
 @Component({
   selector: 'app-account-info',
@@ -75,7 +75,8 @@ export class AccountInfoComponent implements OnInit, OnDestroy{
     this.usersService.updateUser(this.changeInfoForm.value).subscribe(() => {
       this.usersService.getUserByUsername(this.changeInfoForm.value.username).subscribe((user) => {
         this.router.navigate(['/account-info', user.username]);
-        localStorage.setItem('User', user.password);
+        localStorage.setItem('User', user.username);
+        localStorage.setItem('Password', user.password);
         this.user = user;
         this.editInfo = false;
         this.buttonText = "Edit Info";
