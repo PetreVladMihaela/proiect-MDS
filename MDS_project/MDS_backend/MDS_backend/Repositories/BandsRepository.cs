@@ -42,5 +42,38 @@ namespace MDS_backend.Repositories
             db.SaveChanges();
         }
 
+
+
+        public void AddBandAndUserMatch(BandAndUserMatch match)
+        {
+            db.BandAndUserMatches.Add(match);
+            db.SaveChanges();
+        }
+
+        public void RemoveBandAndUserMatch(BandAndUserMatch match)
+        {
+            db.BandAndUserMatches.Remove(match);
+            db.SaveChanges();
+        }
+
+        public void UpdateBandAndUserMatch(BandAndUserMatch match)
+        {
+            db.BandAndUserMatches.Update(match);
+            db.SaveChanges();
+        }
+
+        public IQueryable<BandAndUserMatch> GetMatchesByBandId(int bandId)
+        {
+            var matches = db.BandAndUserMatches.Where(match => match.Type == "survey match" ||
+                                 match.Type == "invitation" || match.Type == "declined invitation");
+            return matches.Where(match => match.BandId == bandId);
+        }
+
+        public IQueryable<BandAndUserMatch> GetMatchesWithUserProfilesByBandId(int bandId)
+        {
+            return GetMatchesByBandId(bandId).Include(match => match.UserProfile)
+                .ThenInclude(profile => profile.Owner);
+        }
+
     }
 }

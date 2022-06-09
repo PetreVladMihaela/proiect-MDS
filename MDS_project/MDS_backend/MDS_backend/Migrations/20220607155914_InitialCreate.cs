@@ -17,8 +17,8 @@ namespace MDS_backend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MusicGenre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateFormed = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Complete = table.Column<bool>(type: "bit", nullable: true)
+                    DateFormed = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsComplete = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,6 +95,31 @@ namespace MDS_backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BandAndUserMatches",
+                columns: table => new
+                {
+                    BandId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BandAndUserMatches", x => new { x.BandId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_BandAndUserMatches_MusicalBands_BandId",
+                        column: x => x.BandId,
+                        principalTable: "MusicalBands",
+                        principalColumn: "BandId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BandAndUserMatches_UserProfiles_UserId",
+                        column: x => x.UserId,
+                        principalTable: "UserProfiles",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserAddresses",
                 columns: table => new
                 {
@@ -113,6 +138,11 @@ namespace MDS_backend.Migrations
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BandAndUserMatches_UserId",
+                table: "BandAndUserMatches",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_BandId",
@@ -134,6 +164,9 @@ namespace MDS_backend.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "BandAndUserMatches");
+
             migrationBuilder.DropTable(
                 name: "Headquarters");
 

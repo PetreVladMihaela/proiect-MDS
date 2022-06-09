@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JpXR8C7NtSuO1ZOL+IQGCAoduRT2fFhDHtKnM9PSRyISEJ602LaRyYiRXYRjcDP2wlBl4kZkNORPDWl/egO2HA==",
+  "dgSpecHash": "Lexf8FmI/xBgwrZJgozB6o/FY0tncfqkaqkif2t4VSfOwwu323hn6UiBM09ovNeefdbPPk8evWNPAMy5I+t/UA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\proiect_mds\\MDS_project\\MDS_backend\\MDS_backend\\MDS_backend.csproj",
+  "projectFilePath": "C:\\Users\\MIHAELAPETRE-VLAD\\Desktop\\proiect-MDS\\MDS_project\\MDS_backend\\MDS_backend\\MDS_backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MIHAELAPETRE-VLAD\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\MIHAELAPETRE-VLAD\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.3\\microsoft.aspnetcore.cryptography.internal.6.0.3.nupkg.sha512",

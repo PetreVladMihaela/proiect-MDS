@@ -22,10 +22,31 @@ namespace MDS_backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("MDS_backend.Entities.BandAndUserMatch", b =>
+                {
+                    b.Property<int>("BandId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BandId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BandAndUserMatches");
+                });
+
             modelBuilder.Entity("MDS_backend.Entities.BandHQ", b =>
                 {
                     b.Property<int>("BandId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -37,9 +58,6 @@ namespace MDS_backend.Migrations
 
                     b.Property<int?>("SquareMeters")
                         .HasColumnType("int");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BandId");
 
@@ -54,11 +72,11 @@ namespace MDS_backend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BandId"), 1L, 1);
 
-                    b.Property<bool?>("Complete")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("DateFormed")
+                    b.Property<DateTime>("DateFormed")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsComplete")
+                        .HasColumnType("bit");
 
                     b.Property<string>("MusicGenre")
                         .HasColumnType("nvarchar(max)");
@@ -170,6 +188,25 @@ namespace MDS_backend.Migrations
                     b.ToTable("UserProfiles");
                 });
 
+            modelBuilder.Entity("MDS_backend.Entities.BandAndUserMatch", b =>
+                {
+                    b.HasOne("MDS_backend.Entities.MusicalBand", "MusicalBand")
+                        .WithMany("BandAndUserMatches")
+                        .HasForeignKey("BandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MDS_backend.Entities.UserProfile", "UserProfile")
+                        .WithMany("BandAndUserMatches")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MusicalBand");
+
+                    b.Navigation("UserProfile");
+                });
+
             modelBuilder.Entity("MDS_backend.Entities.BandHQ", b =>
                 {
                     b.HasOne("MDS_backend.Entities.MusicalBand", "Band")
@@ -211,6 +248,8 @@ namespace MDS_backend.Migrations
 
             modelBuilder.Entity("MDS_backend.Entities.MusicalBand", b =>
                 {
+                    b.Navigation("BandAndUserMatches");
+
                     b.Navigation("HQ");
 
                     b.Navigation("Members");
@@ -225,6 +264,8 @@ namespace MDS_backend.Migrations
             modelBuilder.Entity("MDS_backend.Entities.UserProfile", b =>
                 {
                     b.Navigation("Address");
+
+                    b.Navigation("BandAndUserMatches");
                 });
 #pragma warning restore 612, 618
         }

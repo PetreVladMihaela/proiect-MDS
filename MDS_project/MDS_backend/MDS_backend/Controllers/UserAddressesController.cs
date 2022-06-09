@@ -17,19 +17,11 @@ namespace MDS_backend.Controllers
             this.manager = manager;
         }
 
-
-        [HttpGet("")]
-        public IActionResult GetAllUserAddresses()
-        {
-            return Ok(manager.GetAllUserAddresses());
-        }
-
         [HttpGet("getByUserId/{id}")]
         public IActionResult GetUserAddressByEmail([FromRoute] int id)
         {
             return Ok(manager.GetUserAddressByUserId(id));
         }
-
 
         [HttpPost]
         public IActionResult Create([FromBody] UserAddressModel model)
@@ -51,6 +43,5 @@ namespace MDS_backend.Controllers
             manager.Delete(id);
             return Ok();
         }
-
     }
 }

@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(
     private router: Router,
   ) {
-    console.log('AuthorizationGuard'); //puteti comenta asta
+    //console.log('AuthorizationGuard');
   }
 
   canActivate(
@@ -17,8 +17,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     let isAuthorized = false; // isAuthorized poate fi true sau false 
-    const role = localStorage.getItem('Role');
-    if(role) { isAuthorized = role !== 'Unknown'; }
+    const user = localStorage.getItem('User');
+    if(user) { isAuthorized = true; }
     if (isAuthorized == false) { // daca nu suntem autentificati suntem redirectionati catre pagina de login/register
       //console.error('You are not authorized!');
       this.router.navigate(['auth']); // daca avem ruta cu parametru (de exemplu accesam profilul unui user dupa email)

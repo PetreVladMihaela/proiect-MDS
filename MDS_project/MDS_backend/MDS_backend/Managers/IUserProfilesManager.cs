@@ -9,10 +9,12 @@ namespace MDS_backend.Managers
         UserProfile GetProfileByEmail(string email);
         UserProfile? GetProfileByUsername(string username);
 
-        void AddBand(UserProfileModel model);
-        void Create(UserProfileModel model);
-        void Update(UserProfileModel model);
-        void Delete(string email);
+        List<MusicalBand> GetBandsInvitedToJoin(int userId);
+        void DeleteAllUserMatches(int userId);
 
+        void CreateProfile(UserProfileModel model);
+        void UpdateWholeProfile(UserProfileModel model);
+        void UpdateBandId(string userEmail, int bandId);
+        void DeleteProfile(string email);
     }
 }

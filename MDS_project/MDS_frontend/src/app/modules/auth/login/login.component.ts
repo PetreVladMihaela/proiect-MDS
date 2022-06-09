@@ -79,7 +79,6 @@ export class LoginComponent implements OnInit {
     else {
       localStorage.setItem('User', result.username);
       localStorage.setItem('Password', result.password);
-      localStorage.setItem('Role', 'User');
       this.router.navigate(['/user', result.username]);
       this.closeDialog();
     }

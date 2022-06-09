@@ -27,5 +27,7 @@ namespace MDS_backend.Entities
 
         public int? BandId { get; set; }
         public virtual MusicalBand? Band { get; set; }
+
+        public virtual ICollection<BandAndUserMatch>? BandAndUserMatches { get; set; }
     }
 }

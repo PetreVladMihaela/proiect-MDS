@@ -64,5 +64,53 @@ namespace MDS_backend.Controllers
             return Ok();
         }
 
+
+
+        [HttpGet("{id}/matchedUserProfiles")]
+        public IActionResult GetBandMatches([FromRoute] int id)
+        {
+            return Ok(manager.GetMatchedUserProfilesByBandId(id));
+        }
+
+
+        [HttpPost("bandAndUserMatches")]
+        public IActionResult CreateBandMatches([FromBody] BandAndUserMatchModel[] models)
+        {
+            manager.SaveBandAndUserMatches(models);
+            return Ok();
+        }
+
+
+        [HttpPut("bandAndUserMatches")]
+        public IActionResult UpdateBandMatches([FromBody] BandAndUserMatchModel[] models)
+        {
+            manager.UpdateBandAndUserMatches(models);
+            return Ok();
+        }
+
+
+        [HttpDelete("bandAndUserMatches/{bandId}")]
+        public IActionResult DeleteBandMaches([FromRoute] int bandId)
+        {
+            manager.DeleteAllBandMatches(bandId);
+            return Ok();
+        }
+
+
+        [HttpPut("bandAndUserMatch")]
+        public IActionResult UpdateBandAndUserMatch([FromBody] BandAndUserMatchModel model)
+        {
+            manager.UpdateBandAndUserMatch(model);
+            return Ok();
+        }
+
+
+        [HttpDelete("bandAndUserMatch/{bandId}/{userId}")]
+        public IActionResult DeleteBandAndUserMatch([FromRoute] int bandId, [FromRoute] int userId)
+        {
+            manager.DeleteBandAndUserMatch(bandId, userId);
+            return Ok();
+        }
+
     }
 }

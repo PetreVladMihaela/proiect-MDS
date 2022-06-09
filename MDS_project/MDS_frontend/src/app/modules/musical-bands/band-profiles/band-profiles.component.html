@@ -27,16 +27,19 @@
             <ng-container *ngFor="let member of musicalBand.members">
                 <li class="members" *ngIf="member.firstName && member.lastName">
                     <a routerLink="/user/{{member.owner.username}}">{{member.firstName}} {{member.lastName}}</a>
-                    — playing {{member.playedInstrument | lowercase}}
+                    <span *ngIf="member.playedInstrument"> — playing {{member.playedInstrument | lowercase}};</span>
+                    <span *ngIf="member.canSing" style="margin-left:5px"> singer;</span>
                 </li>
-                <li class="members" *ngIf="!member.firstName && !member.lastName">
+                <li class="members" *ngIf="!member.firstName || !member.lastName">
                     <a routerLink="/user/{{member.owner.username}}">{{member.owner.username}}</a>
+                    <span *ngIf="member.playedInstrument"> — playing {{member.playedInstrument | lowercase}};</span>
+                    <span *ngIf="member.canSing" style="margin-left:5px"> singer;</span>
                 </li>
             </ng-container> </div>
         </mat-card-content>
 
-        <mat-card-actions class="survey-button">
-            <button mat-raised-button color="accent" (click)="takeSurvey()">Take Band Member Survey</button>
+        <mat-card-actions class="survey-button" *ngIf="canEdit">
+            <button mat-raised-button color="accent" (click)="takeSurvey()">Band Member Survey</button>
         </mat-card-actions>
     </mat-card>
 </div>

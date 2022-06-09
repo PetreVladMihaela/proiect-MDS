@@ -1,5 +1,6 @@
 import { UserProfile } from "./user-profile"
 import { BandHQ } from "./band-hq"
+import { BandAndUserMatch } from "./band-user-match"
 
 export interface MusicalBand {
     bandId: number
@@ -9,4 +10,6 @@ export interface MusicalBand {
     isComplete: boolean
     members?: UserProfile[]
     hq?: BandHQ
+
+    bandAndUserMatches?: BandAndUserMatch[]
 }

@@ -64,5 +64,61 @@ namespace MDS_backend.Managers
             band.IsComplete = model.IsComplete;
             bandsRepository.Update(band);
         }
+
+
+        public void SaveBandAndUserMatches(BandAndUserMatchModel[] models)
+        {
+            foreach (BandAndUserMatchModel model in models)
+            {
+                var newMatch = new BandAndUserMatch
+                {
+                    BandId = model.BandId,
+                    UserId = model.UserId,
+                    Type = model.Type
+                };
+                bandsRepository.AddBandAndUserMatch(newMatch);
+            }
+        }
+
+        public void UpdateBandAndUserMatches(BandAndUserMatchModel[] models)
+        {
+            foreach (BandAndUserMatchModel model in models)
+            {
+                UpdateBandAndUserMatch(model);
+            }
+        }
+
+        public void UpdateBandAndUserMatch(BandAndUserMatchModel model)
+        {
+            var match = bandsRepository.GetMatchesByBandId(model.BandId).First(m => m.UserId == model.UserId);
+            match.Type = model.Type;
+            bandsRepository.UpdateBandAndUserMatch(match);
+        }
+
+        public void DeleteBandAndUserMatch(int bandId, int userId)
+        {
+            var match = bandsRepository.GetMatchesByBandId(bandId).First(match => match.UserId == userId);
+            bandsRepository.RemoveBandAndUserMatch(match);
+        }
+
+        public void DeleteAllBandMatches(int bandId)
+        {
+            var matches = bandsRepository.GetMatchesByBandId(bandId).ToList();
+            foreach (BandAndUserMatch match in matches) {
+                bandsRepository.RemoveBandAndUserMatch(match);
+            }
+        }
+
+        public List<UserProfile> GetMatchedUserProfilesByBandId(int bandId)
+        {
+            List<UserProfile> userProfiles = new List<UserProfile>();
+            List<BandAndUserMatch> matches = bandsRepository.GetMatchesWithUserProfilesByBandId(bandId).ToList();
+
+            foreach (var match in matches) {
+                userProfiles.Add(match.UserProfile);
+            }
+            return userProfiles;
+        }
+
     }
 }

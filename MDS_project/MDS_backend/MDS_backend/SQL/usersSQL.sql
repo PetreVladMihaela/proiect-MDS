@@ -22,9 +22,13 @@ INSERT INTO [dbo].[Users](Email, Password, Username)
 VALUES ('user_email@gmail.com', '12345', 'WebsiteUser');
 GO
 
+INSERT INTO [dbo].[Users](Email, Password, Username) 
+VALUES ('test', '55555', 'testing');
+GO
 
 
-DBCC CHECKIDENT ('Users', RESEED, 6);
+
+DBCC CHECKIDENT ('Users', RESEED, 7);
 GO
 
 SELECT * FROM [dbo].[Users];
