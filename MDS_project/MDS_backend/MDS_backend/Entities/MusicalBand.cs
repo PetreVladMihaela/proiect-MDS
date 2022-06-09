@@ -16,5 +16,6 @@ namespace MDS_backend.Entities
         public virtual BandHQ? HQ { get; set; }
         public virtual ICollection<UserProfile> Members { get; set; } = null!;
 
+        public virtual ICollection<BandAndUserMatch>? BandAndUserMatches { get; set; }
     }
 }

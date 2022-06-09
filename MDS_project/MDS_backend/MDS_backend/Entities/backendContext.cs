@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
 
 namespace MDS_backend.Entities
 {
@@ -22,6 +20,7 @@ namespace MDS_backend.Entities
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<UserAddress> UserAddresses { get; set; }
         public DbSet<BandHQ> Headquarters { get; set; }
+        public DbSet<BandAndUserMatch> BandAndUserMatches { get; set; }
 
         public backendContext(DbContextOptions<backendContext> options) : base(options) {}
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -56,6 +55,20 @@ namespace MDS_backend.Entities
             builder.Entity<MusicalBand>()
                 .HasMany(band => band.Members)
                 .WithOne(member => member.Band);
+
+            //Many To Many
+            builder.Entity<BandAndUserMatch>()
+                .HasKey(match => new { match.BandId, match.UserId });
+
+            builder.Entity<BandAndUserMatch>()
+                .HasOne(match => match.MusicalBand)
+                .WithMany(band => band.BandAndUserMatches)
+                .HasForeignKey(match => match.BandId);
+
+            builder.Entity<BandAndUserMatch>()
+                .HasOne(match => match.UserProfile)
+                .WithMany(profile => profile.BandAndUserMatches)
+                .HasForeignKey(match => match.UserId);
         }
     }
 }

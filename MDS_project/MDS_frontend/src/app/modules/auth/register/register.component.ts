@@ -85,7 +85,6 @@ export class RegisterComponent implements OnInit {
       this.userProfilesService.createUserProfile(newProfile).subscribe(() => {
         newAddress.userId = userId;
         this.userAddressesService.createUserAddress(newAddress).subscribe(() => {
-          localStorage.setItem('Role', 'User');
           localStorage.setItem('User', newUser.username);
           localStorage.setItem('Password', newUser.password);
           this.router.navigate(['/user', newUser.username]);

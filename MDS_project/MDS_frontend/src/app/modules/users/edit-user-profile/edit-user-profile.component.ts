@@ -18,7 +18,7 @@ export class EditUserProfileComponent implements OnInit {
     phone: new FormControl(null, [Validators.minLength(10), Validators.maxLength(20)]),
     age: new FormControl(),
     occupation: new FormControl(),
-    canSing: new FormControl(false),
+    canSing: new FormControl(),
     playedInstrument: new FormControl(),
     preferredMusicGenre: new FormControl(),
     trait1: new FormControl(),

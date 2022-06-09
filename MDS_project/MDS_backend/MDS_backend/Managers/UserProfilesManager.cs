@@ -16,7 +16,7 @@ namespace MDS_backend.Managers
 
         public List<UserProfile> GetUserProfiles()
         {
-            return profilesRepository.GetUserProfilesWithAddress().ToList();
+            return profilesRepository.GetUserProfilesWithAddressAndOwner().ToList();
         }
 
         public UserProfile GetProfileByEmail(string email)
@@ -32,7 +32,29 @@ namespace MDS_backend.Managers
         }
 
 
-        public void Create(UserProfileModel model)
+        public List<MusicalBand> GetBandsInvitedToJoin(int userId)
+        {
+            List<MusicalBand> bands = new List<MusicalBand>();
+            List<BandAndUserMatch> invites = profilesRepository.GetInvitationsToJoinBands(userId).ToList();
+
+            foreach (var invite in invites)
+            {
+                bands.Add(invite.MusicalBand);
+            }
+            return bands;
+        }
+
+        public void DeleteAllUserMatches(int userId)
+        {
+            var matches = profilesRepository.GetAllMatchesByUserId(userId).ToList();
+            foreach (BandAndUserMatch match in matches)
+            {
+                profilesRepository.RemoveBandAndUserMatch(match);
+            }
+        }
+
+
+        public void CreateProfile(UserProfileModel model)
         {
             var newProfile = new UserProfile
             {
@@ -52,7 +74,7 @@ namespace MDS_backend.Managers
             profilesRepository.Create(newProfile);
         }
 
-        public void Update(UserProfileModel model)
+        public void UpdateWholeProfile(UserProfileModel model)
         {
             var profile = GetProfileByEmail(model.Owner.Email);
             profile.Phone = model.Phone;
@@ -68,15 +90,15 @@ namespace MDS_backend.Managers
             //profile.BandId = model.BandId;
             profilesRepository.Update(profile);
         }
-
-        public void AddBand(UserProfileModel model)
+ 
+        public void UpdateBandId(string userEmail, int bandId)
         {
-            var profile = GetProfileByEmail(model.Owner.Email);
-            profile.BandId = model.BandId;
+            var profile = GetProfileByEmail(userEmail);
+            profile.BandId = bandId;
             profilesRepository.Update(profile);
         }
 
-        public void Delete(string email)
+        public void DeleteProfile(string email)
         {
             var profile = GetProfileByEmail(email);
             profilesRepository.Delete(profile);

@@ -1,4 +1,4 @@
-.container {
+.container1 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,5 +36,78 @@
 
     .actions>button {
         margin: 10px;
+    }
+}
+
+.container2 {
+    padding: 15px;
+
+    h2 {
+        margin-left: 20px;
+        margin-top: 30px;
+        margin-bottom: 0px;
+    }
+
+    .results {
+        margin-left: 40px;
+        margin-top: 12px;
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+
+        span { font-size: 18px; }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+        }
+        .link:hover {
+            cursor: pointer;
+            color: teal;
+        }
+
+        .declined {
+            color: tomato;
+        }
+
+        button {
+            background-color: lightblue;
+            margin-left: 8px;
+            border: 4px double dodgerblue;
+            border-radius: 4px;
+            padding: 3px 0px 3px 0px;
+
+            span {
+                font-size: 14px;
+                padding: 3px;
+            }
+        }
+    }
+
+    .results>button {
+        .active:hover {
+            background-color: skyblue;
+            cursor: pointer;
+        }
+    }
+
+    .actions {
+        margin-top: 45px;
+        display: flex;
+        padding-left: 50px; padding-right: 50px;
+        justify-content: space-evenly;
+    }
+
+    @media screen and (max-width: 800px)
+    {
+        .actions {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    .noMatch {
+        margin: 35px;
+        font-size: 18px;
     }
 }

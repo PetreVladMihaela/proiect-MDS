@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { UserProfile } from 'src/app/interfaces/user-profile';
 import { MusicalBandsService } from 'src/app/services/band-services/musical-bands.service';
 import { UserProfilesService } from 'src/app/services/user-services/user-profiles.service';
@@ -17,6 +18,7 @@ export class CreateBandComponent implements OnInit {
     public dialogRef: MatDialogRef<CreateBandComponent>,
     private bandsService: MusicalBandsService,
     private profilesService: UserProfilesService,
+    private router: Router
   ) { }
 
   public createBandForm: FormGroup = new FormGroup({
@@ -39,10 +41,11 @@ export class CreateBandComponent implements OnInit {
   }
 
   public saveBand(): void {
+    this.profilesService.deleteUserMatches(this.profile.userId).subscribe();
     this.bandsService.createBand(this.createBandForm.value).subscribe((bandId: number) => {
-      this.profile.bandId = bandId;
-      this.profilesService.addBandToUserProfile(this.profile).subscribe(() => {
-        this.dialogRef.close(bandId);
+      this.profilesService.addBandToUserProfile(this.profile.owner.email, bandId).subscribe(() => {
+        this.dialogRef.close();
+        this.router.navigate(['/band', bandId]);
       });
     });
   }

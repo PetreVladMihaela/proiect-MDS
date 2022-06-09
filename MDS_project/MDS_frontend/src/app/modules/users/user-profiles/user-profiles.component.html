@@ -1,9 +1,18 @@
 <div class="container">
     <h1 class="title">User Profile</h1>
 
-    <button mat-raised-button color="primary" (click)="goToAccountInfo()" *ngIf="canEdit" class="see-account">
-        See Account Info
-    </button>
+    <p class="invites-notification" *ngIf="bandsInvitedToJoin.length==1" (click)="displayInvitations()">
+        You are invited to join {{bandsInvitedToJoin.length}} band.
+    </p>
+    <p class="invites-notification" *ngIf="bandsInvitedToJoin.length>1" (click)="displayInvitations()">
+        You are invited to join {{bandsInvitedToJoin.length}} bands.
+    </p>
+    <ol class="invitations-list" *ngIf="showInvitations"> 
+        <li *ngFor="let band of bandsInvitedToJoin">
+            <a routerLink="/band/{{band.bandId}}"> {{band.name}} </a>
+            <button (click)="acceptInvitation(band)">Join</button><button (click)="declineInvitation(band)">Decline</button>
+        </li>
+    </ol>
 
     <mat-card class="profile-card">
         <mat-card-header>
@@ -65,4 +74,13 @@
             <button mat-button (click)="editUserProfile()"><mat-icon>edit</mat-icon> Edit Profile</button>
         </mat-card-actions>
     </mat-card>
+
+    <div class="buttons">
+        <button mat-raised-button color="primary" (click)="goToAccountInfo()" *ngIf="canEdit" class="see-account-info">
+            See Account Info
+        </button>
+        <button mat-raised-button color="primary" (click)="logout()" *ngIf="canEdit" class="logout">
+            Logout
+        </button>
+    </div>
 </div>

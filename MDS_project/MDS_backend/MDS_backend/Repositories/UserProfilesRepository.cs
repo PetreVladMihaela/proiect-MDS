@@ -17,18 +17,11 @@ namespace MDS_backend.Repositories
             return db.UserProfiles; 
         }
 
-        public IQueryable<UserProfile> GetUserProfilesWithAddress()
-        {
-            var profiles = GetUserProfilesIQueryable().Include(p => p.Address);
-            return profiles;
-        }
-
         public IQueryable<UserProfile> GetUserProfilesWithAddressAndOwner()
         {
             var profiles = GetUserProfilesIQueryable().Include(p => p.Address).Include(p => p.Owner);
             return profiles;
         }
-
 
         public void Create(UserProfile profile)
         {
@@ -45,6 +38,24 @@ namespace MDS_backend.Repositories
         public void Delete(UserProfile profile)
         {
             db.UserProfiles.Remove(profile);
+            db.SaveChanges();
+        }
+
+
+        public IQueryable<BandAndUserMatch> GetInvitationsToJoinBands(int userId)
+        {
+            var invitations = db.BandAndUserMatches.Where(match => match.Type == "invitation");
+            return invitations.Where(invite => invite.UserId == userId).Include(match => match.MusicalBand);
+        }
+
+        public IQueryable<BandAndUserMatch> GetAllMatchesByUserId(int userId)
+        {
+            return db.BandAndUserMatches.Where(match => match.UserId == userId);
+        }
+
+        public void RemoveBandAndUserMatch(BandAndUserMatch match)
+        {
+            db.BandAndUserMatches.Remove(match);
             db.SaveChanges();
         }
 

@@ -14,11 +14,6 @@ namespace MDS_backend.Managers
             this.userAddressesRepository = userAddressesRepository;
         }
 
-        public List<UserAddress> GetAllUserAddresses()
-        {
-            return userAddressesRepository.GetUserAddressesIQueryable().ToList();
-        }
-
         public UserAddress? GetUserAddressByUserId(int id)
         {
             var addresses = userAddressesRepository.GetUserAddressesIQueryable();

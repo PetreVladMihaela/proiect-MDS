@@ -13,5 +13,12 @@ namespace MDS_backend.Managers
         int Create(MusicalBandModel model);
         void Update(MusicalBandModel model);
         void Delete(int id);
+
+        void SaveBandAndUserMatches(BandAndUserMatchModel[] models);
+        void UpdateBandAndUserMatches(BandAndUserMatchModel[] models);
+        void UpdateBandAndUserMatch(BandAndUserMatchModel model);
+        void DeleteBandAndUserMatch(int bandId, int userId);
+        void DeleteAllBandMatches(int bandId);
+        List<UserProfile> GetMatchedUserProfilesByBandId(int bandId);
     }
 }

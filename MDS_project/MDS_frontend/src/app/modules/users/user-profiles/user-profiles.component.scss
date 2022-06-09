@@ -5,26 +5,58 @@
   justify-content: center;
   align-items: center;
   background-color: lightseagreen;
-
-  .see-account {
-    margin-bottom: 30px;
-  }
+  min-width: 300px;
+  min-height: 400px;
 
   .title {
     font-size: 28px;
     font-weight: bold;
     color: rgb(46, 46, 49);
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
+  .invites-notification {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    cursor: pointer;
+    padding: 2px;
+  }
+
+  .invites-notification:hover {
+    background-color: darkcyan;
+  }
+
+  .invitations-list {
+    padding-left: 15px;
+    margin-top: 0; margin-bottom: 0;
+    margin-left: 50px;
+
+    li {
+      margin-top: 8px;
+    }
+
+    button {
+      margin-left: 10px;
+      background-color: turquoise;
+      border: 2px solid teal;
+    }
+
+    button:hover {
+      background-color: cornflowerblue;
+      border-color: steelblue;
+    }
+  };
+
   .profile-card {
+    margin-top: 20px;
     padding: 25px;
     padding-bottom: 15px;
     width: 80%;
     max-width: 450px;
     overflow-y: auto;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     .profile-header {
       background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');
@@ -69,5 +101,20 @@
         padding-right: 10px;
       }
     }
+  }
+
+  .buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (max-width: 550px)
+  {
+      .buttons { width: 90%; }
   }
 }

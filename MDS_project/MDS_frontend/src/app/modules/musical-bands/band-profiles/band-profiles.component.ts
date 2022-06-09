@@ -14,12 +14,10 @@ import { EditBandComponent } from '../edit-band/edit-band.component';
 })
 export class BandProfilesComponent implements OnInit, OnDestroy {
 
-  private sub: Subscription = new Subscription;
+  private subscription: Subscription = new Subscription;
 
-  public musicalBand: MusicalBand = {
-    bandId: 0, name: '',
-    dateFormed: new Date(),
-    isComplete: false
+  public musicalBand: MusicalBand = { bandId: 0, name: '',
+    dateFormed: new Date(), isComplete: false
   }
 
   public canEdit: boolean = false;
@@ -31,13 +29,13 @@ export class BandProfilesComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.sub = this.route.params.subscribe(params => {
+    this.subscription = this.route.params.subscribe(params => {
       this.getMusicalBand(params['id']);
     });
   }
 
   public ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   public getMusicalBand(id: number): void {
@@ -78,6 +76,7 @@ export class BandProfilesComponent implements OnInit, OnDestroy {
     dialogConfig.minWidth = '350px';
     dialogConfig.maxWidth = '500px';
     dialogConfig.height = '600px';
+    dialogConfig.data = this.musicalBand.bandId;
     dialogConfig.disableClose = true; // nu se mai inchide dialogul daca dam clic in afara
     const dialogRef = this.dialog.open(BandMembersSurveyComponent, dialogConfig);
     // dialogRef.afterClosed().subscribe(() => {

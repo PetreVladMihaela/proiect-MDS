@@ -25,6 +25,10 @@ INSERT INTO [dbo].[UserAddresses](UserId, Country, City, Street)
 VALUES (6, 'USA', 'Chicago', null);
 GO
 
+INSERT INTO [dbo].[UserAddresses](UserId, Country, City, Street) 
+VALUES (7, 'france', 'paris', null);
+GO
+
 
 SELECT * FROM [dbo].[UserAddresses];
 GO

@@ -1,3 +1,4 @@
+import { BandAndUserMatch } from "./band-user-match"
 import { User } from "./user"
 import { UserAddress } from "./user-address"
 
@@ -16,4 +17,6 @@ export interface UserProfile {
     trait2?: string
     bandId?: number
     address?: UserAddress
+
+    bandAndUserMatches?: BandAndUserMatch[]
 }
