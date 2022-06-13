@@ -54,8 +54,14 @@ export class AccountInfoComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
       this.usersService.getUserByUsername(params['username']).subscribe((user:User) => {
-        this.user = user
-        this.changeInfoForm.patchValue(user);
+        const username = localStorage.getItem('User');
+        const password = localStorage.getItem('Password');
+        if(username==user.username && password==user.password) { 
+          this.user = user
+          this.changeInfoForm.patchValue(user);
+        }
+        else 
+        this.router.navigate(['/user', username]);
       });
     });
   }

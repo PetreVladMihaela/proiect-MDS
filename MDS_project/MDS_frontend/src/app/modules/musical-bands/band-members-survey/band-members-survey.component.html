@@ -1,7 +1,8 @@
 <div class="container1" *ngIf="!matchedProfiles">
-    <h1 class='title'> Band Member Survey </h1>
+    <h1 class='title'> New Band Members Survey </h1>
 
     <form [formGroup] = "bandMemberSurveyForm" class="survey-form">
+        <p>Where do you want the new band members to live?</p>
         <mat-form-field color="accent" appearance="outline">
             <mat-label>Country</mat-label>
             <input required matInput placeholder="Country" formControlName="country">
@@ -35,6 +36,7 @@
             <label for=false>No</label>
        </div>
 
+       <p>Other information used to search for new members:</p>
        <mat-form-field color="accent" appearance="outline">
             <mat-label>Instrument Played</mat-label>
             <input matInput placeholder="Instrument Played" formControlName="playedInstrument">

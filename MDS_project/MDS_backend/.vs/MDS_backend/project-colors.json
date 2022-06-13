@@ -10,7 +10,22 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "11407897-71cd-46c0-885b-b3f91c1dd4c7": {
+      "ProjectGuid": "11407897-71cd-46c0-885b-b3f91c1dd4c7",
+      "DisplayName": "Integration Tests",
+      "ColorIndex": 1
+    },
+    "7f75a81c-999c-43ae-aec2-f4a5239246ba": {
+      "ProjectGuid": "7f75a81c-999c-43ae-aec2-f4a5239246ba",
+      "DisplayName": "Tests",
+      "ColorIndex": 2
+    },
+    "32e22171-4333-4f2e-88bd-ba6ed43ac6c4": {
+      "ProjectGuid": "32e22171-4333-4f2e-88bd-ba6ed43ac6c4",
+      "DisplayName": "Integration Tests",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }

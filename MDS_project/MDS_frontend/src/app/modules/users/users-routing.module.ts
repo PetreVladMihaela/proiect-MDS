@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from '../auth/register/register.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { UserProfilesComponent } from './user-profiles/user-profiles.component';
@@ -7,7 +8,12 @@ import { UserProfilesComponent } from './user-profiles/user-profiles.component';
 const routes: Routes = [
   {
     path: '', // calea initiala -> http://localhost:4200/
-    redirectTo: 'main' // cand accesam aceasta cale, suntem redirectionati automat catre http://localhost:4200/main 
+    redirectTo: 'auth' // cand accesam aceasta cale, suntem redirectionati automat catre http://localhost:4200/main 
+  },
+
+  {
+    path: 'auth',
+    component: RegisterComponent
   },
 
   {

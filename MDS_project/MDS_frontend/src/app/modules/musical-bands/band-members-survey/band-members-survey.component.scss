@@ -7,6 +7,7 @@
     .title {
         margin-bottom: 35px;
         font-size: 24px;
+        text-align: center;
     }
 
     .survey-form {
@@ -17,7 +18,7 @@
 
         mat-form-field {
             width: 100%;
-            margin: 5px;
+            margin: 2px;
 
             .alert {
                 color: orangered;
@@ -25,11 +26,12 @@
         }
 
         .radio-buttons {
-            margin-bottom: 15px;
+            margin-top: 15px;
+            margin-bottom: 30px;
             display: flex;
 
             input {
-                margin-left: 10px;
+                margin-left: 15px;
             }
         }
     }

@@ -2,7 +2,7 @@
     <h1 class="greeting"> Welcome! </h1>
   
     <div class="register-section">
-      <p>Please register:</p>
+      <p>If you don't have an account, please register in order to access the website:</p>
       <form [formGroup]="registerForm" class="register-form"> <!--registerForm trebuie creat in register component-->
         <mat-form-field color="accent" appearance="outline">
           <mat-label>First Name</mat-label>
@@ -72,6 +72,6 @@
               (click)="register()">Sign up</button>
     </div>
 
-    <p>If you already have an account, please login:</p> 
+    <p>If you already have an account, click here to login:</p> 
     <button class="loginButton" mat-raised-button (click)="openLoginForm()">Login</button>
   </div>
