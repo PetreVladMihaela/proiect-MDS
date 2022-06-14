@@ -54,7 +54,7 @@ namespace Integration_Tests
 
 
         [TestMethod]
-        public async Task TestGetUserByUsername()
+        public async Task TestGetUserProfileByUsername()
         {
             var client = _factory.CreateClient();
             var response = await client.GetAsync("api/userProfiles/getByOwnerUsername/musician1");
