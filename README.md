@@ -43,3 +43,14 @@ We used Trello to create and manage the project's backlog. It can be found here:
 
 
 ## Automated Testing
+For testing the backend's functionality we have created the following 3 classes: UsersControllerTests, UserProfilesControllerTests and MusicalBandsControllerTests. These classes contain in total 8 integration tests:
+1. TestGetUserByUsername
+2. TestGetUserByEmail
+3. TestCreateAndDeleteUser
+4. TestEditUser
+5. TestGetAllUserProfiles
+6. TestGetUserProfileByUsername
+7. TestGetBandById
+8. TestCreateAndDeleteBandMatches
+
+![tests](https://github.com/PetreVladMihaela/proiect-MDS/blob/main/tests.png) 
