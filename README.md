@@ -56,3 +56,7 @@ For testing the backend's functionality we have created the following 3 classes:
 8. TestCreateAndDeleteBandMatches
 
 ![tests](https://github.com/PetreVladMihaela/proiect-MDS/blob/main/tests.png) 
+
+
+## Bug Reporting
+The web app would not load after deleting browser history. Fixed by changing the routes in users-routing.module.ts - see [fix](https://github.com/PetreVladMihaela/proiect-MDS/commit/b169745db2a02420eaf32f22a69aabb3f086ba1e#).
