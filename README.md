@@ -1,6 +1,7 @@
 # Find Your Band Members 
 A web application built with Angular that musicians can use to find people to form musical bands. 
 
+To see the app demo click [here](https://youtu.be/Dc2MF4MxThE).
 
 ## Team Members: 
 - Petre-Vlad Mihaela 241 
