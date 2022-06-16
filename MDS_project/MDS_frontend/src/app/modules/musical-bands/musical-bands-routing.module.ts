@@ -15,8 +15,8 @@ const routes: Routes = [
   },
   
   {
-    path: 'main', // http://localhost:4200/main/
-    component: MainPageComponent // <- componenta instantiata cand ruta este accesata
+    path: 'main',
+    component: MainPageComponent
   }
 ];
 
