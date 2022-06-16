@@ -36,9 +36,11 @@ We used Trello to create and manage the project's backlog. It can be found here:
 
 ## Design 
 ### 1. UML State Diagram 
+The following state diagram illustrates the interactions the users can have with the web app:
 ![state-diagram](https://github.com/PetreVladMihaela/proiect-MDS/blob/main/state-diagram.png) 
 
-### 2. Database Diagram 
+### 2. Database Diagram
+To show the structure of the backend database and the relations between the database tables we have made the following diagram:
 ![Database-diagram](https://github.com/PetreVladMihaela/proiect-MDS/blob/main/database-diagram.png) 
 
 
