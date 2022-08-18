@@ -3,12 +3,6 @@ A web application built with Angular that musicians can use to find people to fo
 
 To see the app demo click [here](https://youtu.be/Dc2MF4MxThE).
 
-## Team Members: 
-- Petre-Vlad Mihaela 241 
-- Pletea Andi-Emilian 242 
-- Vrinceanu Vlad-Florin 242
-  
-
 ## Short Description: 
 On sign up, a new user's profile page is created automatically. Users can edit their profile anytime they want. They can also create a band profile from their profile page. The information in both profiles is stored in the database.
 
